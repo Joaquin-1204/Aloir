@@ -31,7 +31,6 @@
             android:id="@+id/btnJugar"
             android:layout_width="200dp"
             android:layout_height="50dp"
-            android:layout_marginTop="20dp"
             android:fontFamily="@font/alegreya_italic"
             android:text="Jugar" />
         <androidx.appcompat.widget.AppCompatButton
