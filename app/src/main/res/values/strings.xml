@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Aloir</string>
+    <string name="entrenar_tu_oido">Entrenar tu oido</string>
+    <string name="para">para</string>
 </resources>
