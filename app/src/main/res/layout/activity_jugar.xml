@@ -11,14 +11,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:fontFamily="@font/alegreya_italic"
         android:text="App innova !"
         android:textSize="40dp"
-        android:fontFamily="@font/alegreya_italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/alegreya_italic"
+        android:text="Selecciona la dificultad:"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -28,29 +41,40 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnJugar"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/alegreya_italic"
-            android:text="Jugar" />
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnAcercade"
+            android:id="@+id/btnFacil"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:fontFamily="@font/alegreya_italic"
             android:layout_marginTop="20dp"
+            android:text="Facil" />
 
-            android:text="Acerca de" />
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnSalir"
+            android:id="@+id/btnMedio"
             android:layout_width="200dp"
-            android:fontFamily="@font/alegreya_italic"
             android:layout_height="50dp"
+            android:fontFamily="@font/alegreya_italic"
             android:layout_marginTop="20dp"
-            android:text="Salir" />
+            android:text="Medio" />
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnDificil"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:fontFamily="@font/alegreya_italic"
+            android:layout_marginTop="20dp"
+            android:text="Dificil" />
     </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnVolver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="40dp"
+        android:fontFamily="@font/alegreya_italic"
+        android:text="Volver"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 

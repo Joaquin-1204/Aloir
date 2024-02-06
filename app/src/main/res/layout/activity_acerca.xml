@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="App innova !"
+        android:fontFamily="@font/alegreya_italic"
+        android:textSize="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/appCompatButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur porttitor metus quis placerat tristique. Mauris sed mollis elit, vel facilisis dui. Donec quis efficitur est. Mauris non fringilla lorem. Nam id imperdiet elit. Phasellus iaculis mattis erat nec lobortis. In dictum dolor sit amet iaculis mollis. Curabitur vel odio felis. Aenean pulvinar nisi ac quam vehicula, eget luctus nibh ultricies. Donec leo urna, finibus quis tristique quis, vehicula eget nunc. Etiam est purus, vulputate fringilla sollicitudin nec, bibendum sed sapien.
+
+Lorem ipsum dolor sit amet, molestie ullamcorper interdum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam dictum tincidunt erat non aliquam. Maecenas et neque mi. Donec nec odio egestas, finibus dolor et, malesuada quam. Nullam eget felis vel nisl eleifend fermentum id fringilla turpis. Fusce orci tellus, vulputate eget dui ut, auctor porttitor odio. Nunc rhoncus varius interdum. Ut feugiat congue nisi eu interdum. Ut faucibus diam ut maximus luctus. Cras convallis felis eget pulvinar tempus. Vivamus nec felis eget urna tincidunt feugiat quis at nulla. Cras eu ultrices felis.
+Cras sed vulputate elit. Sed sit amet erat et nisl ultrices accumsan. Praesent facilisis massa nisi, ut hendrerit velit ornare quis. Maecenas lacus lacus, volutpat venenatis lacus in, fermentum varius nunc. Quisque accumsan neque nec nulla venenatis, quis volutpat ipsum egestas. Nullam vitae enim sed urna malesuada aliquet. Mauris est felis, auctor sed ex eget, eleifend blandit elit. Cras efficitur venenatis pharetra. Aenean purus ex, aliquam sed orci quis, dignissim malesuada augue. Curabitur nunc neque, euismod in ullamcorper in, aliquet sed quam. Pellentesque suscipit massa dui.
+Cras sed vulputate elit. Sed sit amet erat et nisl ultrices accumsan. Praesent facilisis massa nisi, ut hendrerit velit ornare quis. Maecenas lacus lacus, volutpat venenatis lacus in, fermentum varius nunc. Quisque accumsan neque nec nulla venenatis, quis volutpat ipsum egestas. Nullam vitae enim sed urna malesuada aliquet. Mauris est felis, auctor sed ex eget, eleifend blandit elit. Cras efficitur venenatis pharetra. Aenean purus ex, aliquam sed orci quis, dignissim malesuada augue. Curabitur nunc neque, euismod in ullamcorper in, aliquet sed quam. Pellentesque suscipit massa dui." />
+    </ScrollView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/appCompatButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="Volver"
+        android:fontFamily="@font/alegreya_italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
