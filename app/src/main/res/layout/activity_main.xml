@@ -3,58 +3,98 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/background_gradient"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="ALOIR"
-        android:textSize="60dp"
-        android:textColor="#FFD700"
-        app:strokeColor="#FF0000"
-        app:strokeWidth="2dp"
-        android:fontFamily="@font/alegreya_italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="460dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/new_logo" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnJugar"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:fontFamily="@font/alegreya_italic"
-            android:text="Jugar" />
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnAcercade"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:fontFamily="@font/alegreya_italic"
-            android:layout_marginTop="20dp"
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/amaranth"
+        android:text="Cambiar de comentario"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-            android:text="Acerca de" />
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnSalir"
-            android:layout_width="200dp"
-            android:fontFamily="@font/alegreya_italic"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:text="Salir" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnJugar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="60dp"
+        android:background="@drawable/button_style"
+        android:drawableStart="@android:drawable/btn_star_big_on"
+        android:fontFamily="@font/aclonica"
+        android:padding="10dp"
+        android:text="JUGAR"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:paddingStart="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        tools:ignore="MissingConstraints" />
 
-    </LinearLayout>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnAcercade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="60dp"
+        android:background="@drawable/button_style"
+        android:drawableStart="@android:drawable/ic_input_add"
+        android:fontFamily="@font/aclonica"
+        android:padding="10dp"
+        android:paddingStart="40dp"
+        android:text="ACERCA DE"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnJugar"
+        tools:ignore="MissingConstraints" />
 
-
-
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSalir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="60dp"
+        android:background="@drawable/button_style"
+        android:drawableStart="@android:drawable/ic_delete"
+        android:fontFamily="@font/aclonica"
+        android:padding="10dp"
+        android:text="Salir"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:paddingStart="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAcercade"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>
