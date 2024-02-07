@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/background"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
@@ -11,8 +12,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="App innova !"
-        android:textSize="40dp"
+        android:text="ALOIR"
+        android:textSize="60dp"
+        android:textColor="#FFD700"
+        app:strokeColor="#FF0000"
+        app:strokeWidth="2dp"
         android:fontFamily="@font/alegreya_italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

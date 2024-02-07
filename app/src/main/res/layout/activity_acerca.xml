@@ -24,7 +24,7 @@
         android:layout_height="match_parent"
         android:layout_marginTop="60dp"
         android:layout_marginBottom="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/appCompatButton"
+        app:layout_constraintBottom_toTopOf="@+id/btnVolver"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView">
@@ -33,15 +33,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="20dp"
-            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur porttitor metus quis placerat tristique. Mauris sed mollis elit, vel facilisis dui. Donec quis efficitur est. Mauris non fringilla lorem. Nam id imperdiet elit. Phasellus iaculis mattis erat nec lobortis. In dictum dolor sit amet iaculis mollis. Curabitur vel odio felis. Aenean pulvinar nisi ac quam vehicula, eget luctus nibh ultricies. Donec leo urna, finibus quis tristique quis, vehicula eget nunc. Etiam est purus, vulputate fringilla sollicitudin nec, bibendum sed sapien.
-
-Lorem ipsum dolor sit amet, molestie ullamcorper interdum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam dictum tincidunt erat non aliquam. Maecenas et neque mi. Donec nec odio egestas, finibus dolor et, malesuada quam. Nullam eget felis vel nisl eleifend fermentum id fringilla turpis. Fusce orci tellus, vulputate eget dui ut, auctor porttitor odio. Nunc rhoncus varius interdum. Ut feugiat congue nisi eu interdum. Ut faucibus diam ut maximus luctus. Cras convallis felis eget pulvinar tempus. Vivamus nec felis eget urna tincidunt feugiat quis at nulla. Cras eu ultrices felis.
-Cras sed vulputate elit. Sed sit amet erat et nisl ultrices accumsan. Praesent facilisis massa nisi, ut hendrerit velit ornare quis. Maecenas lacus lacus, volutpat venenatis lacus in, fermentum varius nunc. Quisque accumsan neque nec nulla venenatis, quis volutpat ipsum egestas. Nullam vitae enim sed urna malesuada aliquet. Mauris est felis, auctor sed ex eget, eleifend blandit elit. Cras efficitur venenatis pharetra. Aenean purus ex, aliquam sed orci quis, dignissim malesuada augue. Curabitur nunc neque, euismod in ullamcorper in, aliquet sed quam. Pellentesque suscipit massa dui.
-Cras sed vulputate elit. Sed sit amet erat et nisl ultrices accumsan. Praesent facilisis massa nisi, ut hendrerit velit ornare quis. Maecenas lacus lacus, volutpat venenatis lacus in, fermentum varius nunc. Quisque accumsan neque nec nulla venenatis, quis volutpat ipsum egestas. Nullam vitae enim sed urna malesuada aliquet. Mauris est felis, auctor sed ex eget, eleifend blandit elit. Cras efficitur venenatis pharetra. Aenean purus ex, aliquam sed orci quis, dignissim malesuada augue. Curabitur nunc neque, euismod in ullamcorper in, aliquet sed quam. Pellentesque suscipit massa dui." />
+            android:text="Esta aplicación ha sido diseñada con el propósito de ofrecer una herramienta práctica y útil para músicos de todos los niveles. Ya sea que seas un principiante que está aprendiendo a afinar su instrumento por primera vez o un músico experimentado que busca mejorar su oído musical, nuestra aplicación está aquí para ayudarte. Nuestro objetivo es proporcionar una experiencia intuitiva y efectiva que te permita afinar y entrenar tu oído de manera fácil y accesible. \n
+Con una variedad de funciones y características, nuestra aplicación ofrece una amplia gama de herramientas para satisfacer tus necesidades musicales. Desde la capacidad de reproducir y reconocer notas hasta afinadores precisos y ejercicios de entrenamiento auditivo, nuestra aplicación está diseñada para ser versátil y adaptable a tus preferencias individuales. Además, ofrecemos una interfaz fácil de usar y personalizable que te permite ajustar la configuración según tus preferencias personales. \n
+Nos gustaría expresar nuestro sincero agradecimiento a todos los músicos y usuarios que han apoyado nuestra aplicación a lo largo del tiempo. Sus comentarios, sugerencias y comentarios han sido fundamentales para el desarrollo y la mejora continua de nuestra aplicación. También queremos reconocer a los músicos, educadores y expertos en audio cuya experiencia y conocimientos han contribuido al diseño y la funcionalidad de nuestra aplicación. Sin su apoyo y colaboración, no seríamos capaces de ofrecer una experiencia tan enriquecedora y valiosa a nuestra comunidad de usuarios."
+            />
     </ScrollView>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/appCompatButton"
+        android:id="@+id/btnVolver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
