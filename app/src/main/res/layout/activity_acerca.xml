@@ -4,16 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
     tools:context=".MainActivity">
 
-    <TextView
+    <ImageView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="App innova !"
-        android:fontFamily="@font/alegreya_italic"
-        android:textSize="40dp"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/new_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -21,8 +19,9 @@
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="60dp"
+        android:layout_height="400dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toTopOf="@+id/btnVolver"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,7 +35,8 @@
             android:text="Esta aplicación ha sido diseñada con el propósito de ofrecer una herramienta práctica y útil para músicos de todos los niveles. Ya sea que seas un principiante que está aprendiendo a afinar su instrumento por primera vez o un músico experimentado que busca mejorar su oído musical, nuestra aplicación está aquí para ayudarte. Nuestro objetivo es proporcionar una experiencia intuitiva y efectiva que te permita afinar y entrenar tu oído de manera fácil y accesible. \n
 Con una variedad de funciones y características, nuestra aplicación ofrece una amplia gama de herramientas para satisfacer tus necesidades musicales. Desde la capacidad de reproducir y reconocer notas hasta afinadores precisos y ejercicios de entrenamiento auditivo, nuestra aplicación está diseñada para ser versátil y adaptable a tus preferencias individuales. Además, ofrecemos una interfaz fácil de usar y personalizable que te permite ajustar la configuración según tus preferencias personales. \n
 Nos gustaría expresar nuestro sincero agradecimiento a todos los músicos y usuarios que han apoyado nuestra aplicación a lo largo del tiempo. Sus comentarios, sugerencias y comentarios han sido fundamentales para el desarrollo y la mejora continua de nuestra aplicación. También queremos reconocer a los músicos, educadores y expertos en audio cuya experiencia y conocimientos han contribuido al diseño y la funcionalidad de nuestra aplicación. Sin su apoyo y colaboración, no seríamos capaces de ofrecer una experiencia tan enriquecedora y valiosa a nuestra comunidad de usuarios."
-            />
+            android:textColor="@color/white"
+            android:textStyle="bold" />
     </ScrollView>
 
     <androidx.appcompat.widget.AppCompatButton
@@ -46,7 +46,8 @@ Nos gustaría expresar nuestro sincero agradecimiento a todos los músicos y usu
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:text="Volver"
-        android:fontFamily="@font/alegreya_italic"
+        android:background="@drawable/button_back"
+        android:fontFamily="@font/aclonica"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

@@ -21,6 +21,7 @@ public class Acerca_Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 finish();
+                overridePendingTransition(R.anim.slide_in_activity, R.anim.slide_out_activity);
             }
         });
     }

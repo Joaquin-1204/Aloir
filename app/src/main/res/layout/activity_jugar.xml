@@ -3,32 +3,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/background_gradient"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/alegreya_italic"
-        android:text="App innova !"
-        android:textSize="40dp"
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="460dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/new_logo" />
 
     <TextView
+        android:id="@+id/te"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="40dp"
-        android:fontFamily="@font/alegreya_italic"
+        android:fontFamily="@font/aclonica"
+        android:textColor="@color/white"
         android:text="Selecciona la dificultad:"
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -38,30 +41,33 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/imageView2">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnFacil"
             android:layout_width="200dp"
             android:layout_height="50dp"
-            android:fontFamily="@font/alegreya_italic"
             android:layout_marginTop="20dp"
+            android:background="@drawable/button_level_easy"
+            android:fontFamily="@font/aclonica"
             android:text="Facil" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnMedio"
             android:layout_width="200dp"
             android:layout_height="50dp"
-            android:fontFamily="@font/alegreya_italic"
+            android:background="@drawable/button_level_medium"
             android:layout_marginTop="20dp"
+            android:fontFamily="@font/aclonica"
             android:text="Medio" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnDificil"
             android:layout_width="200dp"
             android:layout_height="50dp"
-            android:fontFamily="@font/alegreya_italic"
+            android:background="@drawable/button_level_hard"
             android:layout_marginTop="20dp"
+            android:fontFamily="@font/aclonica"
             android:text="Dificil" />
     </LinearLayout>
 
@@ -71,7 +77,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="40dp"
-        android:fontFamily="@font/alegreya_italic"
+        android:background="@drawable/button_back"
+        android:fontFamily="@font/aclonica"
         android:text="Volver"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
