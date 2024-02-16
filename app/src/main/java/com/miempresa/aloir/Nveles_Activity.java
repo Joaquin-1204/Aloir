@@ -9,11 +9,15 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.ToneGenerator;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Nveles_Activity extends AppCompatActivity {
 
@@ -21,16 +25,13 @@ public class Nveles_Activity extends AppCompatActivity {
     TextView difi;
     String bundle;
 
-    /*private MediaPlayer mediaPlayer;
+    private MediaPlayer reproductorAudio;
     private SeekBar seekBar;
     private Button playButton;
-    */
+    private Handler Ejecutable;
+    private boolean recorrido = false;
+    private Timer time;
 
-    private ToneGenerator toneGenerator;
-    private SeekBar seekBar;
-    private TextView toneTextView;
-    private int referenceTone = 440; // A4 (440 Hz)
-    private static final int MAX_TONE = 880; // A5 (880 Hz)
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -38,71 +39,60 @@ public class Nveles_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nveles);
 
-        //Usando biblioteca ToneGenerator, trae consigo tonos de audio predefinidos
 
-        toneGenerator = new ToneGenerator(AudioManager.STREAM_MUSIC, 100);
-        seekBar = findViewById(R.id.verticalSeekBar);
-        toneTextView = findViewById(R.id.toneTextView);
-
-        seekBar.setMax(MAX_TONE);
-        seekBar.setProgress(referenceTone);
-
-        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if (fromUser) {
-                    int error = Math.abs(progress - referenceTone);
-                    double centsError = 1200 * Math.log( (double) progress / referenceTone) / Math.log(2);
-                    toneTextView.setText(String.format("Tono: %d Hz, Error: %d cents", progress, (int) centsError));
-                    toneGenerator.startTone(ToneGenerator.TONE_CDMA_PIP, progress);
-                }
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-            }
-        });
-
-        /*
-
-        //Usado para cargar un archivo mp3 y reproducir ---
-
-
-        mediaPlayer = MediaPlayer.create(this, R.raw.ringtones);
+        /// Usado para cargar un archivo mp3 y reproducir ---
+        reproductorAudio = MediaPlayer.create(this, R.raw.do_afinado);
         seekBar = findViewById(R.id.verticalSeekBar);
         playButton = findViewById(R.id.playButton);
+        Ejecutable = new Handler();
+
+        seekBar.setEnabled(false);
+        seekBar.setMax(3000); // 3000 milisegundos = 3 segundos
 
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 if (fromUser) {
-                    mediaPlayer.seekTo(progress);
+                    reproductorAudio.seekTo(progress);
                 }
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
+                recorrido = true;
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
+                recorrido = false;
             }
         });
 
         playButton.setOnClickListener(view -> {
-            if (mediaPlayer.isPlaying()) {
-                mediaPlayer.pause();
+            if (reproductorAudio.isPlaying()) {
+                reproductorAudio.pause();
+                reproductorAudio.seekTo(0); // Reiniciar el audio desde el principio
+                stopUpdatingSeekBar();
+                playButton.setText("Play");
             } else {
-                mediaPlayer.start();
+                reproductorAudio.start();
+                startUpdatingSeekBar();
+                playButton.setText("Stop");
             }
         });
-        */
+
+
+        reproductorAudio.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                //seekBar.setProgress(seekBar.getMax());
+                //stopUpdatingSeekBar();
+                seekBar.setProgress(0); // Establecer el progreso del SeekBar al inicio
+                stopUpdatingSeekBar();
+                playButton.setText("Play");
+            }
+        });
+
 
         //Para salir del juego en nivel básico
         Abandonar = findViewById(R.id.btnVolver);
@@ -133,12 +123,40 @@ public class Nveles_Activity extends AppCompatActivity {
         });
     }
 
+
+    // Método para iniciar el temporizador y actualizar el SeekBar
+    private void startUpdatingSeekBar() {
+        stopUpdatingSeekBar(); // Detener el temporizador previo para evitar múltiples temporizadores ejecutándose simultáneamente
+        time = new Timer();
+        time.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                if (!recorrido && reproductorAudio != null && reproductorAudio.isPlaying()) {
+                    int posicion = reproductorAudio.getCurrentPosition();
+                    Ejecutable.post(() -> seekBar.setProgress(posicion));
+                } else {
+                    stopUpdatingSeekBar(); // Detener la actualización cuando el audio se detiene
+                }
+            }
+        }, 0, 100); // Actualizar cada 100 milisegundos
+    }
+
+    // Método para detener el temporizador
+    private void stopUpdatingSeekBar() {
+        if (time != null) {
+            time.cancel();
+            time = null;
+        }
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        //mediaPlayer.release();
-        toneGenerator.release();
-
+        if (reproductorAudio != null) {
+            reproductorAudio.release();
+            reproductorAudio = null;
+        }
+        stopUpdatingSeekBar();
     }
 
 }
