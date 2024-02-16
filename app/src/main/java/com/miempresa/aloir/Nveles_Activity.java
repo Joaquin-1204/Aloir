@@ -25,12 +25,14 @@ public class Nveles_Activity extends AppCompatActivity {
     TextView difi;
     String bundle;
 
-    private MediaPlayer reproductorAudio;
-    private SeekBar seekBar;
-    private Button playButton;
-    private Handler Ejecutable;
+    private MediaPlayer reproductorAudio, reproductorAudio2;
+    private SeekBar seekBar, seekBar2;
+    private Button playButton, playButton2;
+    private Handler ejecutable;
+    private Handler ejecutable2;
     private boolean recorrido = false;
-    private Timer time;
+    private boolean recorrido2 = false;
+    private Timer time, time2;
 
 
     @SuppressLint("MissingInflatedId")
@@ -40,11 +42,11 @@ public class Nveles_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_nveles);
 
 
-        /// Usado para cargar un archivo mp3 y reproducir ---
+        // Usado para cargar audio 01
         reproductorAudio = MediaPlayer.create(this, R.raw.do_afinado);
         seekBar = findViewById(R.id.verticalSeekBar);
         playButton = findViewById(R.id.playButton);
-        Ejecutable = new Handler();
+        ejecutable = new Handler();
 
         seekBar.setEnabled(false);
         seekBar.setMax(3000); // 3000 milisegundos = 3 segundos
@@ -81,7 +83,6 @@ public class Nveles_Activity extends AppCompatActivity {
             }
         });
 
-
         reproductorAudio.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
@@ -93,6 +94,55 @@ public class Nveles_Activity extends AppCompatActivity {
             }
         });
 
+        // Usado para cargar audio 02
+        reproductorAudio2 = MediaPlayer.create(this, R.raw.do_alto);
+        seekBar2 = findViewById(R.id.verticalSeekBar2);
+        playButton2 = findViewById(R.id.playButton2);
+        ejecutable2 = new Handler();
+
+        seekBar2.setEnabled(false);
+        seekBar2.setMax(3000); // 3000 milisegundos = 3 segundos
+
+        seekBar2.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if (fromUser) {
+                    reproductorAudio2.seekTo(progress);
+                }
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                recorrido2 = true;
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                recorrido2 = false;
+            }
+        });
+
+        playButton2.setOnClickListener(view -> {
+            if (reproductorAudio2.isPlaying()) {
+                reproductorAudio2.pause();
+                reproductorAudio2.seekTo(0); // Reiniciar el audio desde el principio
+                stopUpdatingSeekBar2();
+                playButton2.setText("Play");
+            } else {
+                reproductorAudio2.start();
+                startUpdatingSeekBar2();
+                playButton2.setText("Stop");
+            }
+        });
+
+        reproductorAudio2.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                seekBar2.setProgress(0); // Establecer el progreso del SeekBar al inicio
+                stopUpdatingSeekBar2();
+                playButton2.setText("Play");
+            }
+        });
 
         //Para salir del juego en nivel básico
         Abandonar = findViewById(R.id.btnVolver);
@@ -133,7 +183,7 @@ public class Nveles_Activity extends AppCompatActivity {
             public void run() {
                 if (!recorrido && reproductorAudio != null && reproductorAudio.isPlaying()) {
                     int posicion = reproductorAudio.getCurrentPosition();
-                    Ejecutable.post(() -> seekBar.setProgress(posicion));
+                    ejecutable.post(() -> seekBar.setProgress(posicion));
                 } else {
                     stopUpdatingSeekBar(); // Detener la actualización cuando el audio se detiene
                 }
@@ -149,6 +199,32 @@ public class Nveles_Activity extends AppCompatActivity {
         }
     }
 
+    // Método para iniciar el temporizador y actualizar el SeekBar para el segundo audio
+    private void startUpdatingSeekBar2() {
+        stopUpdatingSeekBar2();
+        time2 = new Timer();
+        time2.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                if (!recorrido2 && reproductorAudio2 != null && reproductorAudio2.isPlaying()) {
+                    int currentPosition = reproductorAudio2.getCurrentPosition();
+                    ejecutable2.post(() -> seekBar2.setProgress(currentPosition));
+                } else {
+                    stopUpdatingSeekBar2();
+                }
+            }
+        }, 0, 100);
+    }
+
+    // Método para detener el temporizador para el segundo audio
+    private void stopUpdatingSeekBar2() {
+        if (time2 != null) {
+            time2.cancel();
+            time2 = null;
+        }
+    }
+
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -157,6 +233,13 @@ public class Nveles_Activity extends AppCompatActivity {
             reproductorAudio = null;
         }
         stopUpdatingSeekBar();
+
+        if (reproductorAudio2 != null) {
+            reproductorAudio2.release();
+            reproductorAudio2 = null;
+        }
+        stopUpdatingSeekBar2();
     }
+
 
 }

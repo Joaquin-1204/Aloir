@@ -8,6 +8,34 @@
     tools:context=".Nveles_Activity">
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="10dp"
+        android:text="IGUAL"
+        android:background="@drawable/button_level_medium"
+        app:layout_constraintEnd_toStartOf="@+id/verticalSeekBar2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/verticalSeekBar"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="10dp"
+        android:text="BAJO"
+        android:background="@drawable/button_level_medium"
+        app:layout_constraintEnd_toStartOf="@+id/verticalSeekBar2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/verticalSeekBar"
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
+
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnVolver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -34,20 +62,65 @@
         android:id="@+id/letter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="76dp"
         android:fontFamily="@font/aclonica"
-        android:text="La#"
+        android:text="S02"
         android:textColor="@color/white"
         android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.893"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/difficult" />
+
+    <TextView
+        android:id="@+id/letter3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:fontFamily="@font/aclonica"
+        android:text="S01"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.131"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/difficult" />
+
+    <TextView
+        android:id="@+id/letter2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:fontFamily="@font/aclonica"
+        android:text="Do#"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/difficult" />
 
     <SeekBar
         android:id="@+id/verticalSeekBar"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_width="150dp"
+        android:layout_height="402dp"
+        android:layout_marginTop="30dp"
+        android:max="10000"
+        android:progress="0"
+        android:progressDrawable="@drawable/custom_progress"
+        android:rotation="270"
+        android:splitTrack="false"
+        android:thumb="@drawable/custom_thumb"
+        app:layout_constraintTop_toBottomOf="@+id/letter"
+        tools:ignore="MissingConstraints" />
+
+    <SeekBar
+        android:id="@+id/verticalSeekBar2"
+        android:layout_width="150dp"
+        android:layout_height="402dp"
         android:layout_marginTop="30dp"
         android:max="10000"
         android:progress="0"
@@ -56,8 +129,8 @@
         android:splitTrack="false"
         android:thumb="@drawable/custom_thumb"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/letter" />
+        app:layout_constraintTop_toBottomOf="@+id/letter"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/playButton"
@@ -66,7 +139,17 @@
         android:layout_marginEnd="304dp"
         android:text="Play"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/verticalSeekBar"
+        app:layout_constraintVertical_bias="0.503" />
 
+    <Button
+        android:id="@+id/playButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="64dp"
+        android:text="Play"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/verticalSeekBar"
         app:layout_constraintVertical_bias="0.503" />
@@ -80,4 +163,33 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/playButton"
         app:layout_constraintTop_toBottomOf="@+id/verticalSeekBar" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¿El segundo sonido que escuchas, esta alto,\n bajo o igual?"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/letter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/difficult" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/button_level_medium"
+        android:text="ALTO"
+        app:layout_constraintEnd_toStartOf="@+id/verticalSeekBar2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/verticalSeekBar"
+        app:layout_constraintTop_toBottomOf="@+id/letter"
+        tools:ignore="MissingConstraints" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
