@@ -10,12 +10,17 @@ import android.media.MediaPlayer;
 import android.media.ToneGenerator;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -33,6 +38,10 @@ public class Nveles_Activity extends AppCompatActivity {
     private boolean recorrido = false;
     private boolean recorrido2 = false;
     private Timer time, time2;
+
+    private int[] audiosRaw = {R.raw.do_alto, R.raw.do_bajo, R.raw.do_afinado}; // Array de recursos de audio
+    private Random random = new Random(); // Generador de números aleatorios
+
 
 
     @SuppressLint("MissingInflatedId")
@@ -80,6 +89,8 @@ public class Nveles_Activity extends AppCompatActivity {
                 reproductorAudio.start();
                 startUpdatingSeekBar();
                 playButton.setText("Stop");
+                String audioFileName = getResources().getResourceEntryName(R.raw.do_afinado); // Obtener el nombre del archivo de audio "do_afinado"
+                Log.d("Audio reproduciendo", audioFileName); // Mostrar el nombre del archivo de audio en la consola
             }
         });
 
@@ -123,26 +134,37 @@ public class Nveles_Activity extends AppCompatActivity {
         });
 
         playButton2.setOnClickListener(view -> {
-            if (reproductorAudio2.isPlaying()) {
-                reproductorAudio2.pause();
+            if (reproductorAudio2 != null && reproductorAudio2.isPlaying()) {
+                reproductorAudio2.pause(); // Pausar la reproducción actual
                 reproductorAudio2.seekTo(0); // Reiniciar el audio desde el principio
-                stopUpdatingSeekBar2();
+                stopUpdatingSeekBar2(); // Detener el temporizador
                 playButton2.setText("Play");
             } else {
+                if (reproductorAudio2 != null) {
+                    reproductorAudio2.release(); // Liberar el recurso anterior
+                }
+                int audioIndex = random.nextInt(audiosRaw.length); // Obtener un índice aleatorio
+                int audioResource = audiosRaw[audioIndex]; // Obtener el recurso de audio correspondiente al índice
+                reproductorAudio2 = MediaPlayer.create(this, audioResource); // Crear el MediaPlayer con el audio seleccionado
                 reproductorAudio2.start();
                 startUpdatingSeekBar2();
                 playButton2.setText("Stop");
+                String audioFileName = getResources().getResourceEntryName(audioResource); // Obtener el nombre del archivo de audio
+                Log.d("Audio reproduciendo", audioFileName); // Mostrar el nombre del archivo de audio en la consola
             }
         });
 
         reproductorAudio2.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
+                //seekBar2.setProgress(seekBar2.getMax());
                 seekBar2.setProgress(0); // Establecer el progreso del SeekBar al inicio
                 stopUpdatingSeekBar2();
                 playButton2.setText("Play");
+                reproductorAudio2.seekTo(0); // Reiniciar el audio desde el principio
             }
         });
+
 
         //Para salir del juego en nivel básico
         Abandonar = findViewById(R.id.btnVolver);
