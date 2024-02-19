@@ -101,7 +101,7 @@
     <SeekBar
         android:id="@+id/verticalSeekBar"
         android:layout_width="150dp"
-        android:layout_height="402dp"
+        android:layout_height="302dp"
         android:layout_marginTop="30dp"
         android:max="10000"
         android:progress="0"
@@ -109,22 +109,27 @@
         android:rotation="270"
         android:splitTrack="false"
         android:thumb="@drawable/custom_thumb"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/letter"
         tools:ignore="MissingConstraints" />
 
     <SeekBar
         android:id="@+id/verticalSeekBar2"
         android:layout_width="150dp"
-        android:layout_height="402dp"
+        android:layout_height="0dp"
         android:layout_marginTop="30dp"
-        android:max="10000"
+        android:max="3000"
         android:progress="0"
         android:progressDrawable="@drawable/custom_progress"
         android:rotation="270"
         android:splitTrack="false"
         android:thumb="@drawable/custom_thumb"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        app:layout_constraintBottom_toTopOf="@+id/playButton2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/letter"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints" />
 
     <androidx.appcompat.widget.AppCompatButton
