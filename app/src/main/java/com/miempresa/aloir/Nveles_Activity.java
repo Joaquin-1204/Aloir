@@ -53,9 +53,54 @@ public class Nveles_Activity extends AppCompatActivity {
         difi.setText(bundle);
         switch (bundle) {
             case "Facil":
-                addQuestion( "DO#alto", R.raw.do_afinado, R.raw.do_alto, "alto");
-                addQuestion("DO#bajo", R.raw.do_afinado, R.raw.do_bajo, "bajo");
-                addQuestion("DO#afi", R.raw.do_afinado, R.raw.do_afinado, "igual");
+                //DO
+                addQuestion( "DO alto", R.raw.do_afinado, R.raw.do_alto, "alto");
+                addQuestion("DO bajo", R.raw.do_afinado, R.raw.do_bajo, "bajo");
+                addQuestion("DO afi", R.raw.do_afinado, R.raw.do_afinado, "igual");
+                //DO#REb
+                addQuestion( "DO#REb alto", R.raw.dossreb_afinado, R.raw.dossreb_alto, "alto");
+                addQuestion("DO#REb bajo", R.raw.dossreb_afinado, R.raw.dossreb_bajo, "bajo");
+                addQuestion("DO#REb afi", R.raw.dossreb_afinado, R.raw.dossreb_afinado, "igual");
+                //RE
+                addQuestion( "RE alto", R.raw.re_afinado, R.raw.re_alto, "alto");
+                addQuestion("RE bajo", R.raw.re_afinado, R.raw.re_bajo, "bajo");
+                addQuestion("RE afi", R.raw.re_afinado, R.raw.re_afinado, "igual");
+                //RE#MIb
+                addQuestion( "RE#MIb alto", R.raw.remib_afinado, R.raw.remib_alto, "alto");
+                addQuestion("RE#MIb bajo", R.raw.remib_afinado, R.raw.remib_bajo, "bajo");
+                addQuestion("RE#MIb afi", R.raw.remib_afinado, R.raw.remib_afinado, "igual");
+                //MI
+                addQuestion( "MI alto", R.raw.mi_afinado, R.raw.mi_alto, "alto");
+                addQuestion("MI bajo", R.raw.mi_afinado, R.raw.mi_bajo, "bajo");
+                addQuestion("MI afi", R.raw.mi_afinado, R.raw.mi_afinado, "igual");
+                //FA
+                addQuestion( "FA alto", R.raw.fa_afinado, R.raw.fa_alto, "alto");
+                addQuestion("FA bajo", R.raw.fa_afinado, R.raw.fa_bajo, "bajo");
+                addQuestion("FA afi", R.raw.fa_afinado, R.raw.fa_afinado, "igual");
+                //FA#SOLb
+                addQuestion( "FA#SOLb alto", R.raw.fasolb_afinado, R.raw.fasolb_alto, "alto");
+                addQuestion("FA#SOLb bajo", R.raw.fasolb_afinado, R.raw.fasolb_bajo, "bajo");
+                addQuestion("FA#SOLb afi", R.raw.fasolb_afinado, R.raw.fasolb_afinado, "igual");
+                //SOL
+                addQuestion( "SOL alto", R.raw.sol_afinado, R.raw.sol_alto, "alto");
+                addQuestion("SOL bajo", R.raw.sol_afinado, R.raw.sol_bajo, "bajo");
+                addQuestion("SOL afi", R.raw.sol_afinado, R.raw.sol_afinado, "igual");
+                //SOL#LAb
+                addQuestion( "SOL#LAb alto", R.raw.sollab_afinado, R.raw.sollab_alto, "alto");
+                addQuestion("SOL#LAb bajo", R.raw.sollab_afinado, R.raw.sollab_bajo, "bajo");
+                addQuestion("SOL#LAb afi", R.raw.sollab_afinado, R.raw.sollab_afinado, "igual");
+                //LA
+                addQuestion( "LA alto", R.raw.la_afinado, R.raw.la_alto, "alto");
+                addQuestion("LA bajo", R.raw.la_afinado, R.raw.la_bajo, "bajo");
+                addQuestion("LA afi", R.raw.la_afinado, R.raw.la_afinado, "igual");
+                //LA#SIb
+                addQuestion( "LA#SIb alto", R.raw.lasib_afinado, R.raw.lasib_alto, "alto");
+                addQuestion("LA#SIb bajo", R.raw.lasib_afinado, R.raw.lasib_bajo, "bajo");
+                addQuestion("LA#SIb afi", R.raw.lasib_afinado, R.raw.lasib_afinado, "igual");
+                //SI
+                addQuestion( "SI alto", R.raw.si_afinado, R.raw.si_alto, "alto");
+                addQuestion("SI bajo", R.raw.si_afinado, R.raw.si_bajo, "bajo");
+                addQuestion("SI afi", R.raw.si_afinado, R.raw.si_afinado, "igual");
                 next(questions);
                 break;
             case "Medio":
@@ -111,12 +156,12 @@ public class Nveles_Activity extends AppCompatActivity {
     public void exercise(int primary, int secondary, String ml, String response) {
         exerciseasy=exerciseasy + 1;
         // cambiar esto solo verifico si funciona xddd
-        if (exerciseasy >= 4) {
+        if (exerciseasy >= 10) {
             Toast.makeText(this, "completado", Toast.LENGTH_LONG).show();
             Intent intent = new Intent(Nveles_Activity.this, MainActivity.class);
             startActivity(intent);
         }
-        if (exerciseasy > 1 && exerciseasy <= 3){
+        if (exerciseasy > 1 && exerciseasy <= 9){
             Toast.makeText(this, "Buen trabajo siguiente nivel", Toast.LENGTH_SHORT).show();
         }
         // Usado para cargar audio 01
