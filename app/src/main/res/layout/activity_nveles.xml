@@ -8,7 +8,7 @@
     tools:context=".Nveles_Activity">
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button2"
+        android:id="@+id/btnIgual"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -19,10 +19,10 @@
         app:layout_constraintEnd_toStartOf="@+id/verticalSeekBar2"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/verticalSeekBar"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/btnAlto" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button3"
+        android:id="@+id/btnBajo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -33,7 +33,7 @@
         app:layout_constraintEnd_toStartOf="@+id/verticalSeekBar2"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/verticalSeekBar"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/btnIgual" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnVolver"
@@ -89,12 +89,12 @@
         app:layout_constraintTop_toBottomOf="@+id/difficult" />
 
     <TextView
-        android:id="@+id/letter2"
+        android:id="@+id/musicletter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:fontFamily="@font/aclonica"
-        android:text="Do#"
+        android:text="---"
         android:textColor="@color/white"
         android:textSize="30dp"
         android:textStyle="bold"
@@ -169,20 +169,22 @@
         app:layout_constraintTop_toBottomOf="@+id/verticalSeekBar" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="¿El segundo sonido que escuchas, esta alto,\n bajo o igual?"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:text="¿El segundo sonido que escuchas, \nesta alto, bajo o igual?"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="18sp"
+        android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/letter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/difficult" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button"
+        android:id="@+id/btnAlto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"

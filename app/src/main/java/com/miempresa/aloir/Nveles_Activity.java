@@ -5,21 +5,23 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.ToneGenerator;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Looper;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -27,21 +29,15 @@ import java.util.TimerTask;
 public class Nveles_Activity extends AppCompatActivity {
 
     Button Abandonar;
-    TextView difi;
+    TextView difi, music;
     String bundle;
-
+    int exerciseasy =0;
     private MediaPlayer reproductorAudio, reproductorAudio2;
     private SeekBar seekBar, seekBar2;
-    private Button playButton, playButton2;
-    private Handler ejecutable;
-    private Handler ejecutable2;
-    private boolean recorrido = false;
-    private boolean recorrido2 = false;
-    private Timer time, time2;
+    private Button playButton, playButton2, Alto, Bajo, Igual;
 
-    private int[] audiosRaw = {R.raw.do_alto, R.raw.do_bajo, R.raw.do_afinado}; // Array de recursos de audio
-    private Random random = new Random(); // Generador de números aleatorios
-
+    private Timer time;
+    public static List<Map<String, Object>> questions = new ArrayList<>();
 
 
     @SuppressLint("MissingInflatedId")
@@ -50,128 +46,25 @@ public class Nveles_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nveles);
 
-
-        // Usado para cargar audio 01
-        reproductorAudio = MediaPlayer.create(this, R.raw.do_afinado);
-        seekBar = findViewById(R.id.verticalSeekBar);
-        playButton = findViewById(R.id.playButton);
-        ejecutable = new Handler();
-
-        seekBar.setEnabled(false);
-        seekBar.setMax(3000); // 3000 milisegundos = 3 segundos
-
-        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if (fromUser) {
-                    reproductorAudio.seekTo(progress);
-                }
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                recorrido = true;
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                recorrido = false;
-            }
-        });
-
-        playButton.setOnClickListener(view -> {
-            if (reproductorAudio.isPlaying()) {
-                reproductorAudio.pause();
-                reproductorAudio.seekTo(0); // Reiniciar el audio desde el principio
-                stopUpdatingSeekBar();
-                playButton.setText("Play");
-            } else {
-                reproductorAudio.start();
-                startUpdatingSeekBar();
-                playButton.setText("Stop");
-                String audioFileName = getResources().getResourceEntryName(R.raw.do_afinado); // Obtener el nombre del archivo de audio "do_afinado"
-                Log.d("Audio reproduciendo", audioFileName); // Mostrar el nombre del archivo de audio en la consola
-            }
-        });
-
-        reproductorAudio.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-            @Override
-            public void onCompletion(MediaPlayer mp) {
-                //seekBar.setProgress(seekBar.getMax());
-                //stopUpdatingSeekBar();
-                seekBar.setProgress(0); // Establecer el progreso del SeekBar al inicio
-                stopUpdatingSeekBar();
-                playButton.setText("Play");
-            }
-        });
-
-        // Usado para cargar audio 02
-        reproductorAudio2 = MediaPlayer.create(this, R.raw.do_alto);
-        seekBar2 = findViewById(R.id.verticalSeekBar2);
-        playButton2 = findViewById(R.id.playButton2);
-        ejecutable2 = new Handler();
-
-        seekBar2.setEnabled(false);
-        seekBar2.setMax(3000); // 3000 milisegundos = 3 segundos
-
-        seekBar2.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if (fromUser) {
-                    reproductorAudio2.seekTo(progress);
-                }
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                recorrido2 = true;
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                recorrido2 = false;
-            }
-        });
-
-        playButton2.setOnClickListener(view -> {
-            if (reproductorAudio2 != null && reproductorAudio2.isPlaying()) {
-                reproductorAudio2.pause(); // Pausar la reproducción actual
-                reproductorAudio2.seekTo(0); // Reiniciar el audio desde el principio
-                stopUpdatingSeekBar2(); // Detener el temporizador
-                playButton2.setText("Play");
-            } else {
-                if (reproductorAudio2 != null) {
-                    reproductorAudio2.release(); // Liberar el recurso anterior
-                }
-                int audioIndex = random.nextInt(audiosRaw.length); // Obtener un índice aleatorio
-                int audioResource = audiosRaw[audioIndex]; // Obtener el recurso de audio correspondiente al índice
-                reproductorAudio2 = MediaPlayer.create(this, audioResource); // Crear el MediaPlayer con el audio seleccionado
-                reproductorAudio2.start();
-                startUpdatingSeekBar2();
-                playButton2.setText("Stop");
-                String audioFileName = getResources().getResourceEntryName(audioResource); // Obtener el nombre del archivo de audio
-                Log.d("Audio reproduciendo", audioFileName); // Mostrar el nombre del archivo de audio en la consola
-            }
-        });
-
-        reproductorAudio2.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-            @Override
-            public void onCompletion(MediaPlayer mp) {
-                //seekBar2.setProgress(seekBar2.getMax());
-                seekBar2.setProgress(0); // Establecer el progreso del SeekBar al inicio
-                stopUpdatingSeekBar2();
-                playButton2.setText("Play");
-                reproductorAudio2.seekTo(0); // Reiniciar el audio desde el principio
-            }
-        });
-
-
         //Para salir del juego en nivel básico
         Abandonar = findViewById(R.id.btnVolver);
         difi = findViewById(R.id.difficult);
         bundle = getIntent().getStringExtra("dd");
         difi.setText(bundle);
+        switch (bundle) {
+            case "Facil":
+                addQuestion( "DO#alto", R.raw.do_afinado, R.raw.do_alto, "alto");
+                addQuestion("DO#bajo", R.raw.do_afinado, R.raw.do_bajo, "bajo");
+                addQuestion("DO#afi", R.raw.do_afinado, R.raw.do_afinado, "igual");
+                next(questions);
+                break;
+            case "Medio":
+                break;
+            case  "Dificil":
+                break;
+        }
 
+        time = new Timer();
         Abandonar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -194,74 +87,196 @@ public class Nveles_Activity extends AppCompatActivity {
             }
         });
     }
+    //crea el diccionario de preguntas
+    public static void addQuestion(String lettermusic, int bar1, int bar2, String correct) {
+        Map<String, Object> questionMap = new HashMap<>();
+        questionMap.put("lettermusic", lettermusic);
+        questionMap.put("bar1", bar1);
+        questionMap.put("bar2", bar2);
+        questionMap.put("correct", correct);
+        questions.add(questionMap);
+    }
+    public void next(List<Map<String, Object>> qqs) {
+        Random random = new Random();
+        int randomIndex = random.nextInt(qqs.size());
+        Map<String, Object> randomQuestion = qqs.get(randomIndex);
+        int principalsound = (int) randomQuestion.get("bar1");
+        int secundarysound = (int) randomQuestion.get("bar2");
+        String mletter = (String) randomQuestion.get("lettermusic");
+        String rpta = (String) randomQuestion.get("correct");
+        exercise(principalsound, secundarysound, mletter,rpta);
+    }
 
+    @SuppressLint("ResourceAsColor")
+    public void exercise(int primary, int secondary, String ml, String response) {
+        exerciseasy=exerciseasy + 1;
+        // cambiar esto solo verifico si funciona xddd
+        if (exerciseasy >= 4) {
+            Toast.makeText(this, "completado", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(Nveles_Activity.this, MainActivity.class);
+            startActivity(intent);
+        }
+        if (exerciseasy > 1 && exerciseasy <= 3){
+            Toast.makeText(this, "Buen trabajo siguiente nivel", Toast.LENGTH_SHORT).show();
+        }
+        // Usado para cargar audio 01
+        reproductorAudio = MediaPlayer.create(this, primary);
+        seekBar = findViewById(R.id.verticalSeekBar);
+        playButton = findViewById(R.id.playButton);
 
-    // Método para iniciar el temporizador y actualizar el SeekBar
-    private void startUpdatingSeekBar() {
-        stopUpdatingSeekBar(); // Detener el temporizador previo para evitar múltiples temporizadores ejecutándose simultáneamente
-        time = new Timer();
+        // Usado para cargar audio 02
+        reproductorAudio2 = MediaPlayer.create(this, secondary);
+        seekBar2 = findViewById(R.id.verticalSeekBar2);
+        playButton2 = findViewById(R.id.playButton2);
+
+        music = findViewById(R.id.musicletter);
+        music.setText(ml);
+
+        Alto = findViewById(R.id.btnAlto);
+        Bajo = findViewById(R.id.btnBajo);
+        Igual = findViewById(R.id.btnIgual);
+
+        Alto.setBackground(getDrawable(R.drawable.button_level_medium));
+        Bajo.setBackground(getDrawable(R.drawable.button_level_medium));
+        Igual.setBackground(getDrawable(R.drawable.button_level_medium));
+
+        if (response.equals("alto")){
+            Alto.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Alto.setBackgroundColor(R.color.white);
+                    next(questions);
+                }
+            });
+            Bajo.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                }
+            });
+            Igual.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                }
+            });
+        } else if (response.equals("bajo")) {
+            Alto.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                }
+            });
+            Bajo.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Bajo.setBackgroundColor(R.color.white);
+                    next(questions);
+                }
+            });
+            Igual.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                }
+            });
+        } else {
+            Alto.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                }
+            });
+            Bajo.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                }
+            });
+            Igual.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Igual.setBackgroundColor(R.color.white);
+                    next(questions);
+                }
+            });
+        }
+
+        configureAudioPlayer(reproductorAudio, seekBar, playButton);
+        configureAudioPlayer(reproductorAudio2, seekBar2, playButton2);
+    }
+
+    private void configureAudioPlayer(MediaPlayer player, SeekBar seekBar, Button playButton) {
+        seekBar.setEnabled(false);
+        seekBar.setMax(3000);
+
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if (fromUser) {
+                    player.seekTo(progress);
+                }
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {}
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {}
+        });
+
+        playButton.setOnClickListener(view -> {
+            if (player.isPlaying()) {
+                player.pause();
+                player.seekTo(0);
+                stopUpdatingSeekBar(player);
+                playButton.setText("Play");
+            } else {
+                player.start();
+                startUpdatingSeekBar(player, seekBar);
+                playButton.setText("Stop");
+            }
+        });
+
+        player.setOnCompletionListener(mp -> {
+            seekBar.setProgress(0);
+            stopUpdatingSeekBar(player);
+            playButton.setText("Play");
+        });
+    }
+
+    private void startUpdatingSeekBar(MediaPlayer mediaPlayer, SeekBar seekBar) {
         time.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                if (!recorrido && reproductorAudio != null && reproductorAudio.isPlaying()) {
-                    int posicion = reproductorAudio.getCurrentPosition();
-                    ejecutable.post(() -> seekBar.setProgress(posicion));
+                if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+                    int currentPosition = mediaPlayer.getCurrentPosition();
+                    seekBar.post(() -> seekBar.setProgress(currentPosition));
                 } else {
-                    stopUpdatingSeekBar(); // Detener la actualización cuando el audio se detiene
-                }
-            }
-        }, 0, 100); // Actualizar cada 100 milisegundos
-    }
-
-    // Método para detener el temporizador
-    private void stopUpdatingSeekBar() {
-        if (time != null) {
-            time.cancel();
-            time = null;
-        }
-    }
-
-    // Método para iniciar el temporizador y actualizar el SeekBar para el segundo audio
-    private void startUpdatingSeekBar2() {
-        stopUpdatingSeekBar2();
-        time2 = new Timer();
-        time2.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                if (!recorrido2 && reproductorAudio2 != null && reproductorAudio2.isPlaying()) {
-                    int currentPosition = reproductorAudio2.getCurrentPosition();
-                    ejecutable2.post(() -> seekBar2.setProgress(currentPosition));
-                } else {
-                    stopUpdatingSeekBar2();
+                    // El MediaPlayer no está reproduciendo o es nulo, detener la actualización
+                    stopUpdatingSeekBar(mediaPlayer);
                 }
             }
         }, 0, 100);
     }
 
-    // Método para detener el temporizador para el segundo audio
-    private void stopUpdatingSeekBar2() {
-        if (time2 != null) {
-            time2.cancel();
-            time2 = null;
+    private void stopUpdatingSeekBar(MediaPlayer mediaPlayer) {
+        if (mediaPlayer != null) {
+            mediaPlayer.pause();
+            mediaPlayer.seekTo(0);
         }
     }
-
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (reproductorAudio != null) {
-            reproductorAudio.release();
-            reproductorAudio = null;
+        // Detener el temporizador si está en ejecución
+        if (time != null) {
+            time.cancel();
+            time = null;
         }
-        stopUpdatingSeekBar();
-
-        if (reproductorAudio2 != null) {
-            reproductorAudio2.release();
-            reproductorAudio2 = null;
-        }
-        stopUpdatingSeekBar2();
+        // Liberar los recursos del MediaPlayer
+        releaseMediaPlayer(reproductorAudio);
+        releaseMediaPlayer(reproductorAudio2);
     }
 
-
+    private void releaseMediaPlayer(MediaPlayer mediaPlayer) {
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+        }
+    }
 }
