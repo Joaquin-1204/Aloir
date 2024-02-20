@@ -101,7 +101,134 @@ public class Nveles_Activity extends AppCompatActivity {
                 addQuestion( "SI alto", R.raw.si_afinado, R.raw.si_alto, "alto");
                 addQuestion("SI bajo", R.raw.si_afinado, R.raw.si_bajo, "bajo");
                 addQuestion("SI afi", R.raw.si_afinado, R.raw.si_afinado, "igual");
+
+                //DO4 escala 4
+                addQuestion( "DO4 alto", R.raw.do4_afinado, R.raw.do4_alto, "alto");
+                addQuestion("DO4 bajo", R.raw.do4_afinado, R.raw.do4_bajo, "bajo");
+                addQuestion("DO4 afi", R.raw.do4_afinado, R.raw.do4_afinado, "igual");
+
+                //DO#RE4 escala 4
+                addQuestion( "DO#RE4 alto", R.raw.doreb4_afinado, R.raw.doreb4_alto, "alto");
+                addQuestion("DO#RE4 bajo", R.raw.doreb4_afinado, R.raw.doreb4_bajo, "bajo");
+                addQuestion("DO#RE4 afi", R.raw.doreb4_afinado, R.raw.doreb4_afinado, "igual");
+
+                //RE4 escala 4
+                addQuestion( "RE4 alto", R.raw.re4_afinado, R.raw.re4_alto, "alto");
+                addQuestion("RE4 bajo", R.raw.re4_afinado, R.raw.re4_bajo, "bajo");
+                addQuestion("RE4 afi", R.raw.re4_afinado, R.raw.re4_afinado, "igual");
+
+                //RE#MI4 escala 4
+                addQuestion( "RE#MI4 alto", R.raw.re4_afinado, R.raw.re4_alto, "alto");
+                addQuestion("RE#MI4 bajo", R.raw.re4_afinado, R.raw.re4_bajo, "bajo");
+                addQuestion("RE#MI4 afi", R.raw.re4_afinado, R.raw.re4_afinado, "igual");
+
+                //MI4 escala 4
+                addQuestion( "MI4 alto", R.raw.mi4_afinado, R.raw.mi4_alto, "alto");
+                addQuestion("MI4 bajo", R.raw.mi4_afinado, R.raw.mi4_bajo, "bajo");
+                addQuestion("MI4 afi", R.raw.mi4_afinado, R.raw.mi4_afinado, "igual");
+
+                //FA4 escala 4
+                addQuestion( "FA4 alto", R.raw.fa4_afinado, R.raw.fa4_alto, "alto");
+                addQuestion("FA4 bajo", R.raw.fa4_afinado, R.raw.fa4_bajo, "bajo");
+                addQuestion("FA4 afi", R.raw.fa4_afinado, R.raw.fa4_afinado, "igual");
+
+                //FA#SOL4 escala 4
+                addQuestion( "FA#SOL4 alto", R.raw.fasol4_afinado, R.raw.fasol4_alto, "alto");
+                addQuestion("FA#SOL4 bajo", R.raw.fasol4_afinado, R.raw.fasol4_bajo, "bajo");
+                addQuestion("FA#SOL4 afi", R.raw.fasol4_afinado, R.raw.fasol4_afinado, "igual");
+
+                //SOL4 escala 4
+                addQuestion( "SOL4 alto", R.raw.sol4_afinado, R.raw.sol4_alto, "alto");
+                addQuestion("SOL4 bajo", R.raw.sol4_afinado, R.raw.sol4_bajo, "bajo");
+                addQuestion("SOL4 afi", R.raw.sol4_afinado, R.raw.sol4_afinado, "igual");
+
+                //SOL#LA4 escala 4
+                addQuestion( "SOL#LA4 alto", R.raw.solla4_afinado, R.raw.solla4_alto, "alto");
+                addQuestion("SOL#LA4 bajo", R.raw.solla4_afinado, R.raw.solla4_bajo, "bajo");
+                addQuestion("SOL#LA4 afi", R.raw.solla4_afinado, R.raw.solla4_afinado, "igual");
+
+                //LA4 escala 4
+                addQuestion( "LA4 alto", R.raw.la4_afinado, R.raw.la4_alto, "alto");
+                addQuestion("LA4 bajo", R.raw.la4_afinado, R.raw.la4_bajo, "bajo");
+                addQuestion("LA4 afi", R.raw.la4_afinado, R.raw.la4_afinado, "igual");
+
+                //LA#SI4 escala 4
+                addQuestion( "LA#SI4 alto", R.raw.lasi4_afinado, R.raw.lasi4_alto, "alto");
+                addQuestion("LA#SI4 bajo", R.raw.lasi4_afinado, R.raw.lasi4_bajo, "bajo");
+                addQuestion("LA#SI4 afi", R.raw.lasi4_afinado, R.raw.lasi4_afinado, "igual");
+
+                //SI4 escala 4
+                addQuestion( "SI4 alto", R.raw.si4_afinado, R.raw.si4_alto, "alto");
+                addQuestion("SI4 bajo", R.raw.si4_afinado, R.raw.si4_bajo, "bajo");
+                addQuestion("SI4 afi", R.raw.si4_afinado, R.raw.si4_afinado, "igual");
+
+                //DO5 escala 5
+                addQuestion( "DO5 alto", R.raw.do5_afinado, R.raw.do5_alto, "alto");
+                addQuestion("DO5 bajo", R.raw.do5_afinado, R.raw.do5_bajo, "bajo");
+                addQuestion("DO5 afi", R.raw.do5_afinado, R.raw.do5_afinado, "igual");
+
+                //DO#RE5 escala 5
+                addQuestion( "DO#RE5 alto", R.raw.dore5_afinado, R.raw.dore5_alto, "alto");
+                addQuestion("DO#RE5 bajo", R.raw.dore5_afinado, R.raw.dore5_bajo, "bajo");
+                addQuestion("DO#RE5 afi", R.raw.dore5_afinado, R.raw.dore5_afinado, "igual");
+
+                //RE5 escala 5
+                addQuestion( "RE5 alto", R.raw.re5_afinado, R.raw.re5_alto, "alto");
+                addQuestion("RE5 bajo", R.raw.re5_afinado, R.raw.re5_bajo, "bajo");
+                addQuestion("RE5 afi", R.raw.re5_afinado, R.raw.re5_afinado, "igual");
+
+                //RE#MI5 escala 5
+                addQuestion( "RE#MI5 alto", R.raw.remi5_afinado, R.raw.remi5_alto, "alto");
+                addQuestion("RE#MI5 bajo", R.raw.remi5_afinado, R.raw.remi5_bajo, "bajo");
+                addQuestion("RE#MI5 afi", R.raw.remi5_afinado, R.raw.remi5_afinado, "igual");
+
+                //MI5 escala 5
+                addQuestion( "MI5 alto", R.raw.mi5_afinado, R.raw.mi5_alto, "alto");
+                addQuestion("MI5 bajo", R.raw.mi5_afinado, R.raw.mi5_bajo, "bajo");
+                addQuestion("MI5 afi", R.raw.mi5_afinado, R.raw.mi5_afinado, "igual");
+
+                //FA5 escala 5
+                addQuestion( "FA5 alto", R.raw.fa5_afinado, R.raw.fa5_alto, "alto");
+                addQuestion("FA5 bajo", R.raw.fa5_afinado, R.raw.fa5_bajo, "bajo");
+                addQuestion("FA5 afi", R.raw.fa5_afinado, R.raw.fa5_afinado, "igual");
+
+                //FA#SOL5 escala 5
+                addQuestion( "FA#SOL5 alto", R.raw.fasol5_afinado, R.raw.fasol5_alto, "alto");
+                addQuestion("FA#SOL5 bajo", R.raw.fasol5_afinado, R.raw.fasol5_bajo, "bajo");
+                addQuestion("FA#SOL5 afi", R.raw.fasol5_afinado, R.raw.fasol5_afinado, "igual");
+
+                //SOL5 escala 5
+                addQuestion( "SOL5 alto", R.raw.sol5_afinado, R.raw.sol5_alto, "alto");
+                addQuestion("SOL5 bajo", R.raw.sol5_afinado, R.raw.sol5_bajo, "bajo");
+                addQuestion("SOL5 afi", R.raw.sol5_afinado, R.raw.sol5_afinado, "igual");
+
+                //SOL#LA5 escala 5
+                addQuestion( "SOL#LA5 alto", R.raw.solla5_afinado, R.raw.solla5_alto, "alto");
+                addQuestion("SOL#LA5 bajo", R.raw.solla5_afinado, R.raw.solla5_bajo, "bajo");
+                addQuestion("SOL#LA5 afi", R.raw.solla5_afinado, R.raw.solla5_afinado, "igual");
+
+                //LA5 escala 5
+                addQuestion( "LA5 alto", R.raw.la5_afinado, R.raw.la5_alto, "alto");
+                addQuestion("LA5 bajo", R.raw.la5_afinado, R.raw.la5_bajo, "bajo");
+                addQuestion("LA5 afi", R.raw.la5_afinado, R.raw.la5_afinado, "igual");
+
+                //LA#SI5 escala 5
+                addQuestion( "LA#SI5 alto", R.raw.lasi5_afinado, R.raw.lasi5_alto, "alto");
+                addQuestion("LA#SI5 bajo", R.raw.lasi5_afinado, R.raw.lasi5_bajo, "bajo");
+                addQuestion("LA#SI5 afi", R.raw.lasi5_afinado, R.raw.lasi5_afinado, "igual");
+
+                //SI5 escala 5
+                addQuestion( "SI5 alto", R.raw.si5_afinado, R.raw.si5_alto, "alto");
+                addQuestion("SI5 bajo", R.raw.si5_afinado, R.raw.si5_bajo, "bajo");
+                addQuestion("SI5 afi", R.raw.si5_afinado, R.raw.si5_afinado, "igual");
+
+                //DO6 escala 6
+                addQuestion( "DO6 alto", R.raw.do6_afinado, R.raw.do6_alto, "alto");
+                addQuestion("DO6 bajo", R.raw.do6_afinado, R.raw.do6_bajo, "bajo");
+                addQuestion("DO6 afi", R.raw.do6_afinado, R.raw.do6_afinado, "igual");
+
                 next(questions);
+
                 break;
             case "Medio":
                 break;
