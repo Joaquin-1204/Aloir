@@ -324,9 +324,6 @@ public class Nveles_Activity extends AppCompatActivity {
             Intent intent = new Intent(Nveles_Activity.this, MainActivity.class);
             startActivity(intent);
         }
-        if (exerciseasy > 1 && exerciseasy <= 9){
-            Toast.makeText(this, "Buen trabajo siguiente nivel", Toast.LENGTH_SHORT).show();
-        }
         // Usado para cargar audio 01
         reproductorAudio = MediaPlayer.create(this, primary);
         seekBar = findViewById(R.id.verticalSeekBar);
@@ -352,15 +349,9 @@ public class Nveles_Activity extends AppCompatActivity {
             Alto.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    //Alto.setBackgroundColor(R.color.white);
-                    //puntajeActual += 10; // Suma 10 puntos por respuesta correcta
-                    //next(questions);
-                    if (response.equals("alto")) {
-                        // Respuesta correcta
-                        updateScore(10); // Suma 10 puntos al puntaje
-                    } else {
-                        // Respuesta incorrecta
-                        updateScore(0); // No suma puntos al puntaje
+                    updateScore(10); // Suma 10 puntos al puntaje
+                    if (exerciseasy > 1 && exerciseasy <= 9){
+                        Toast.makeText(getApplicationContext(), "Buen trabajo siguiente nivel", Toast.LENGTH_SHORT).show();
                     }
                     next(questions); // Pasar a la siguiente pregunta
                 }
@@ -368,31 +359,40 @@ public class Nveles_Activity extends AppCompatActivity {
             Bajo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    updateScore(0); // no suma al puntaje
+                    if (exerciseasy > 1 && exerciseasy <= 9){
+                        Toast.makeText(getApplicationContext(), "Entrena tu oido", Toast.LENGTH_SHORT).show();
+                    }
+                    next(questions); // Pasar a la siguiente pregunta
                 }
             });
             Igual.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    updateScore(0); // no suma al puntaje
+                    if (exerciseasy > 1 && exerciseasy <= 9){
+                        Toast.makeText(getApplicationContext(), "Entrena tu oido", Toast.LENGTH_SHORT).show();
+                    }
+                    next(questions); // Pasar a la siguiente pregunta
                 }
             });
         } else if (response.equals("bajo")) {
             Alto.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    updateScore(0); // no suma al puntaje
+                    if (exerciseasy > 1 && exerciseasy <= 9){
+                        Toast.makeText(getApplicationContext(), "Entrena tu oido", Toast.LENGTH_SHORT).show();
+                    }
+                    next(questions); // Pasar a la siguiente pregunta
                 }
             });
             Bajo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    //Bajo.setBackgroundColor(R.color.white);
-                    //puntajeActual += 10; // Suma 10 puntos por respuesta correcta
-                    //next(questions);
-                    if (response.equals("bajo")) {
-                        // Respuesta correcta
-                        updateScore(10); // Suma 10 puntos al puntaje
-                    } else {
-                        // Respuesta incorrecta
-                        updateScore(0); // No suma puntos al puntaje
+                    updateScore(10); // Suma 10 puntos al puntaje
+                    if (exerciseasy > 1 && exerciseasy <= 9){
+                        Toast.makeText(getApplicationContext(), "Buen trabajo siguiente nivel", Toast.LENGTH_SHORT).show();
                     }
                     next(questions); // Pasar a la siguiente pregunta
                 }
@@ -400,31 +400,40 @@ public class Nveles_Activity extends AppCompatActivity {
             Igual.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    updateScore(0); // no suma al puntaje
+                    if (exerciseasy > 1 && exerciseasy <= 9){
+                        Toast.makeText(getApplicationContext(), "Entrena tu oido", Toast.LENGTH_SHORT).show();
+                    }
+                    next(questions); // Pasar a la siguiente pregunta
                 }
             });
         } else {
             Alto.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    updateScore(0); // no suma al puntaje
+                    if (exerciseasy > 1 && exerciseasy <= 9){
+                        Toast.makeText(getApplicationContext(), "Entrena tu oido", Toast.LENGTH_SHORT).show();
+                    }
+                    next(questions); // Pasar a la siguiente pregunta
                 }
             });
             Bajo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    updateScore(0); // no suma al puntaje
+                    if (exerciseasy >= 1 && exerciseasy <= 9){
+                        Toast.makeText(getApplicationContext(), "Entrena tu oido", Toast.LENGTH_SHORT).show();
+                    }
+                    next(questions); // Pasar a la siguiente pregunta
                 }
             });
             Igual.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    //Igual.setBackgroundColor(R.color.white);
-                    //puntajeActual += 10; // Suma 10 puntos por respuesta correcta
-                    //next(questions);
-                    if (response.equals("igual")) {
-                        // Respuesta correcta
-                        updateScore(10); // Suma 10 puntos al puntaje
-                    } else {
-                        // Respuesta incorrecta
-                        updateScore(0); // No suma puntos al puntaje
+                    updateScore(10); // Suma 10 puntos al puntaje
+                    if (exerciseasy > 1 && exerciseasy <= 9){
+                        Toast.makeText(getApplicationContext(), "Buen trabajo siguiente nivel", Toast.LENGTH_SHORT).show();
                     }
                     next(questions); // Pasar a la siguiente pregunta
                 }
