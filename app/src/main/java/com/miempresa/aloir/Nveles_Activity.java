@@ -29,12 +29,16 @@ import java.util.TimerTask;
 public class Nveles_Activity extends AppCompatActivity {
 
     Button Abandonar;
-    TextView difi, music;
+    TextView difi, music, questionCounter, scoreCounter;
     String bundle;
     int exerciseasy =0;
     private MediaPlayer reproductorAudio, reproductorAudio2;
     private SeekBar seekBar, seekBar2;
     private Button playButton, playButton2, Alto, Bajo, Igual;
+
+    private int puntajeActual = 0;
+    private final int puntajeMaximo = 100;
+
 
     private Timer time;
     public static List<Map<String, Object>> questions = new ArrayList<>();
@@ -258,7 +262,25 @@ public class Nveles_Activity extends AppCompatActivity {
                 alert.show();
             }
         });
+
+        // Inicialización de TextViews
+        questionCounter = findViewById(R.id.questionCounter);
+        scoreCounter = findViewById(R.id.scoreCounter);
+
+        // Inicializar contador de preguntas y puntaje
+        updateQuestionCounter();
+        updateScoreCounter();
     }
+
+    private void updateScoreCounter() {
+        scoreCounter.setText("Puntaje: " + puntajeActual);
+    }
+
+    private void updateQuestionCounter() {
+        TextView questionCounter = findViewById(R.id.questionCounter);
+        questionCounter.setText(String.format("%d/10", exerciseasy));
+    }
+
     //crea el diccionario de preguntas
     public static void addQuestion(String lettermusic, int bar1, int bar2, String correct) {
         Map<String, Object> questionMap = new HashMap<>();
@@ -279,12 +301,26 @@ public class Nveles_Activity extends AppCompatActivity {
         exercise(principalsound, secundarysound, mletter,rpta);
     }
 
+    // Método para actualizar el puntaje
+    private void updateScore(int points) {
+        String currentScoreText = scoreCounter.getText().toString();
+        // Elimina cualquier texto adicional y deja solo el número
+        String scoreText = currentScoreText.replaceAll("\\D+", "");
+        int currentScore = Integer.parseInt(scoreText);
+        currentScore += points; // Suma los puntos al puntaje actual
+        scoreCounter.setText("0"); // Establece el puntaje inicial a 0
+        scoreCounter.setText(String.valueOf(currentScore)); // Actualiza el TextView del puntaje
+    }
+
+
     @SuppressLint("ResourceAsColor")
     public void exercise(int primary, int secondary, String ml, String response) {
-        exerciseasy=exerciseasy + 1;
+        exerciseasy++; // Incrementa el contador de preguntas
+        updateQuestionCounter(); // Actualiza el contador de preguntas
+        // exerciseasy=exerciseasy + 1;
         // cambiar esto solo verifico si funciona xddd
         if (exerciseasy >= 10) {
-            Toast.makeText(this, "completado", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "completado" + puntajeActual, Toast.LENGTH_LONG).show();
             Intent intent = new Intent(Nveles_Activity.this, MainActivity.class);
             startActivity(intent);
         }
@@ -316,8 +352,17 @@ public class Nveles_Activity extends AppCompatActivity {
             Alto.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Alto.setBackgroundColor(R.color.white);
-                    next(questions);
+                    //Alto.setBackgroundColor(R.color.white);
+                    //puntajeActual += 10; // Suma 10 puntos por respuesta correcta
+                    //next(questions);
+                    if (response.equals("alto")) {
+                        // Respuesta correcta
+                        updateScore(10); // Suma 10 puntos al puntaje
+                    } else {
+                        // Respuesta incorrecta
+                        updateScore(0); // No suma puntos al puntaje
+                    }
+                    next(questions); // Pasar a la siguiente pregunta
                 }
             });
             Bajo.setOnClickListener(new View.OnClickListener() {
@@ -339,8 +384,17 @@ public class Nveles_Activity extends AppCompatActivity {
             Bajo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Bajo.setBackgroundColor(R.color.white);
-                    next(questions);
+                    //Bajo.setBackgroundColor(R.color.white);
+                    //puntajeActual += 10; // Suma 10 puntos por respuesta correcta
+                    //next(questions);
+                    if (response.equals("bajo")) {
+                        // Respuesta correcta
+                        updateScore(10); // Suma 10 puntos al puntaje
+                    } else {
+                        // Respuesta incorrecta
+                        updateScore(0); // No suma puntos al puntaje
+                    }
+                    next(questions); // Pasar a la siguiente pregunta
                 }
             });
             Igual.setOnClickListener(new View.OnClickListener() {
@@ -362,10 +416,20 @@ public class Nveles_Activity extends AppCompatActivity {
             Igual.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Igual.setBackgroundColor(R.color.white);
-                    next(questions);
+                    //Igual.setBackgroundColor(R.color.white);
+                    //puntajeActual += 10; // Suma 10 puntos por respuesta correcta
+                    //next(questions);
+                    if (response.equals("igual")) {
+                        // Respuesta correcta
+                        updateScore(10); // Suma 10 puntos al puntaje
+                    } else {
+                        // Respuesta incorrecta
+                        updateScore(0); // No suma puntos al puntaje
+                    }
+                    next(questions); // Pasar a la siguiente pregunta
                 }
             });
+
         }
 
         configureAudioPlayer(reproductorAudio, seekBar, playButton);
