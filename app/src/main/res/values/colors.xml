@@ -8,4 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color  name="color_launch">#B01515</color>
+    <color  name="color_card">#000029</color>
+    <color  name="color_pregunta">#32FD6B</color>
+
 </resources>

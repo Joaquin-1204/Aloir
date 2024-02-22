@@ -273,7 +273,7 @@ public class Nveles_Activity extends AppCompatActivity {
     }
 
     private void updateScoreCounter() {
-        scoreCounter.setText("Puntaje: " + puntajeActual);
+        scoreCounter.setText(" " + puntajeActual);
     }
 
     private void updateQuestionCounter() {
