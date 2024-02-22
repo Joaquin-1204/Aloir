@@ -1,23 +1,21 @@
 package com.miempresa.aloir;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.media.AudioManager;
+import android.graphics.Color;
 import android.media.MediaPlayer;
-import android.media.ToneGenerator;
 import android.os.Bundle;
 import android.os.Handler;
-import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,6 +24,8 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class Nveles_Activity extends AppCompatActivity {
 
@@ -245,24 +245,33 @@ public class Nveles_Activity extends AppCompatActivity {
         Abandonar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(Nveles_Activity.this);
-                builder.setTitle(R.string.app_name);
-                builder.setMessage("Se perdera el avance ¿Desea salir?");
-                builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        finish();
-                        overridePendingTransition(R.anim.radial_transition, 0);
-                    }
-                });
-                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.dismiss();
-                    }
-                });
-                AlertDialog alert = builder.create();
-                alert.show();
+                if (!isFinishing()) { // Verificar si la actividad aún está en un estado válido
+                    new SweetAlertDialog(Nveles_Activity.this, SweetAlertDialog.WARNING_TYPE)
+                            .setTitleText("¿Seguro que quieres abandonar?")
+                            .setContentText("Se perderá el progreso.")
+                            .setConfirmText("Si")
+                            .setCancelText("No")
+                            .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                @Override
+                                public void onClick(SweetAlertDialog sweetAlertDialog) {
+                                    // Si el usuario hace clic en "Si", finaliza la actividad y realiza la transición de cierre
+                                    finish();
+                                    overridePendingTransition(R.anim.radial_transition, 0);
+                                    sweetAlertDialog.dismissWithAnimation(); // Cierra la alerta con una animación
+                                }
+                            })
+                            .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                @Override
+                                public void onClick(SweetAlertDialog sweetAlertDialog) {
+                                    // Si el usuario hace clic en "No", simplemente cierra la alerta
+                                    sweetAlertDialog.dismissWithAnimation(); // Cierra la alerta con una animación
+                                }
+                            })
+                            .show();
+                }
             }
         });
+
 
         // Inicialización de TextViews
         questionCounter = findViewById(R.id.questionCounter);
@@ -323,9 +332,16 @@ public class Nveles_Activity extends AppCompatActivity {
         // exerciseasy=exerciseasy + 1;
         // cambiar esto solo verifico si funciona xddd
         if (exerciseasy >= 10) {
-            Toast.makeText(this, "completado" + puntajeActual, Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(Nveles_Activity.this, MainActivity.class);
-            startActivity(intent);
+            // Mostrar resultado durante 3 segundos antes de pasar a la siguiente actividad
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Intent intent = new Intent(Nveles_Activity.this, MainActivity.class);
+                    startActivity(intent);
+                    finish(); // Finalizar la actividad actual
+                    overridePendingTransition(R.anim.radial_transition, 0);
+                }
+            }, 5000); // 3000 milisegundos = 3 segundos
         }
         // Usado para cargar audio 01
         reproductorAudio = MediaPlayer.create(this, primary);
@@ -355,8 +371,25 @@ public class Nveles_Activity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     updateScore(10); // Suma 10 puntos al puntaje
-                    if (exerciseasy > 1 && exerciseasy <= 9){
-                        Toast.makeText(getApplicationContext(), "Buen trabajo siguiente nivel", Toast.LENGTH_SHORT).show();
+                    if (exerciseasy > 1 && exerciseasy <= 9) {
+                        SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(Nveles_Activity.this, SweetAlertDialog.SUCCESS_TYPE)
+                                .setTitleText("Buen trabajo")
+                                .setContentText("+10 puntos")
+                                .showCancelButton(false)
+                                .setCancelClickListener(null)
+                                .setConfirmClickListener(null);
+
+                        // Ocultar el botón de confirmación
+                        sweetAlertDialog.hideConfirmButton();
+                        sweetAlertDialog.show();
+
+                        // Programar la desaparición de la alerta después de 1 segundo
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                sweetAlertDialog.dismiss();
+                            }
+                        }, 1000); // 1000 milisegundos = 1 segundo
                     }
                     next(questions); // Pasar a la siguiente pregunta
                 }
@@ -366,7 +399,23 @@ public class Nveles_Activity extends AppCompatActivity {
                 public void onClick(View view) {
                     updateScore(0); // no suma al puntaje
                     if (exerciseasy > 1 && exerciseasy <= 9){
-                        Toast.makeText(getApplicationContext(), "Entrena tu oido", Toast.LENGTH_SHORT).show();
+                        SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(Nveles_Activity.this, SweetAlertDialog.ERROR_TYPE)
+                                .setTitleText("Entrena tu oido")
+                                .showCancelButton(false)
+                                .setCancelClickListener(null)
+                                .setConfirmClickListener(null);
+
+                        // Ocultar el botón de confirmación
+                        sweetAlertDialog.hideConfirmButton();
+                        sweetAlertDialog.show();
+
+                        // Programar la desaparición de la alerta después de 1 segundo
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                sweetAlertDialog.dismiss();
+                            }
+                        }, 1000); // 1000 milisegundos = 1 segundo
                     }
                     next(questions); // Pasar a la siguiente pregunta
                 }
@@ -376,7 +425,23 @@ public class Nveles_Activity extends AppCompatActivity {
                 public void onClick(View view) {
                     updateScore(0); // no suma al puntaje
                     if (exerciseasy > 1 && exerciseasy <= 9){
-                        Toast.makeText(getApplicationContext(), "Entrena tu oido", Toast.LENGTH_SHORT).show();
+                        SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(Nveles_Activity.this, SweetAlertDialog.ERROR_TYPE)
+                                .setTitleText("Entrena tu oido")
+                                .showCancelButton(false)
+                                .setCancelClickListener(null)
+                                .setConfirmClickListener(null);
+
+                        // Ocultar el botón de confirmación
+                        sweetAlertDialog.hideConfirmButton();
+                        sweetAlertDialog.show();
+
+                        // Programar la desaparición de la alerta después de 1 segundo
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                sweetAlertDialog.dismiss();
+                            }
+                        }, 1000); // 1000 milisegundos = 1 segundo
                     }
                     next(questions); // Pasar a la siguiente pregunta
                 }
@@ -387,7 +452,23 @@ public class Nveles_Activity extends AppCompatActivity {
                 public void onClick(View view) {
                     updateScore(0); // no suma al puntaje
                     if (exerciseasy > 1 && exerciseasy <= 9){
-                        Toast.makeText(getApplicationContext(), "Entrena tu oido", Toast.LENGTH_SHORT).show();
+                        SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(Nveles_Activity.this, SweetAlertDialog.ERROR_TYPE)
+                                .setTitleText("Entrena tu oido")
+                                .showCancelButton(false)
+                                .setCancelClickListener(null)
+                                .setConfirmClickListener(null);
+
+                        // Ocultar el botón de confirmación
+                        sweetAlertDialog.hideConfirmButton();
+                        sweetAlertDialog.show();
+
+                        // Programar la desaparición de la alerta después de 1 segundo
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                sweetAlertDialog.dismiss();
+                            }
+                        }, 1000); // 1000 milisegundos = 1 segundo
                     }
                     next(questions); // Pasar a la siguiente pregunta
                 }
@@ -397,7 +478,25 @@ public class Nveles_Activity extends AppCompatActivity {
                 public void onClick(View view) {
                     updateScore(10); // Suma 10 puntos al puntaje
                     if (exerciseasy > 1 && exerciseasy <= 9){
-                        Toast.makeText(getApplicationContext(), "Buen trabajo siguiente nivel", Toast.LENGTH_SHORT).show();
+                        SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(Nveles_Activity.this, SweetAlertDialog.SUCCESS_TYPE)
+                                .setTitleText("Buen trabajo")
+                                .setContentText("+10 puntos")
+                                .showCancelButton(false)
+                                .setCancelClickListener(null)
+                                .setConfirmClickListener(null);
+
+                        // Ocultar el botón de confirmación
+                        sweetAlertDialog.hideConfirmButton();
+                        sweetAlertDialog.show();
+
+                        // Programar la desaparición de la alerta después de 1 segundo
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                sweetAlertDialog.dismiss();
+                            }
+                        }, 1000); // 1000 milisegundos = 1 segundo
+                        //Toast.makeText(getApplicationContext(), "Buen trabajo siguiente nivel", Toast.LENGTH_SHORT).show();
                     }
                     next(questions); // Pasar a la siguiente pregunta
                 }
@@ -407,7 +506,23 @@ public class Nveles_Activity extends AppCompatActivity {
                 public void onClick(View view) {
                     updateScore(0); // no suma al puntaje
                     if (exerciseasy > 1 && exerciseasy <= 9){
-                        Toast.makeText(getApplicationContext(), "Entrena tu oido", Toast.LENGTH_SHORT).show();
+                        SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(Nveles_Activity.this, SweetAlertDialog.ERROR_TYPE)
+                                .setTitleText("Entrena tu oido")
+                                .showCancelButton(false)
+                                .setCancelClickListener(null)
+                                .setConfirmClickListener(null);
+
+                        // Ocultar el botón de confirmación
+                        sweetAlertDialog.hideConfirmButton();
+                        sweetAlertDialog.show();
+
+                        // Programar la desaparición de la alerta después de 1 segundo
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                sweetAlertDialog.dismiss();
+                            }
+                        }, 1000); // 1000 milisegundos = 1 segundo
                     }
                     next(questions); // Pasar a la siguiente pregunta
                 }
@@ -418,7 +533,23 @@ public class Nveles_Activity extends AppCompatActivity {
                 public void onClick(View view) {
                     updateScore(0); // no suma al puntaje
                     if (exerciseasy > 1 && exerciseasy <= 9){
-                        Toast.makeText(getApplicationContext(), "Entrena tu oido", Toast.LENGTH_SHORT).show();
+                        SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(Nveles_Activity.this, SweetAlertDialog.ERROR_TYPE)
+                                .setTitleText("Entrena tu oido")
+                                .showCancelButton(false)
+                                .setCancelClickListener(null)
+                                .setConfirmClickListener(null);
+
+                        // Ocultar el botón de confirmación
+                        sweetAlertDialog.hideConfirmButton();
+                        sweetAlertDialog.show();
+
+                        // Programar la desaparición de la alerta después de 1 segundo
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                sweetAlertDialog.dismiss();
+                            }
+                        }, 1000); // 1000 milisegundos = 1 segundo
                     }
                     next(questions); // Pasar a la siguiente pregunta
                 }
@@ -428,7 +559,24 @@ public class Nveles_Activity extends AppCompatActivity {
                 public void onClick(View view) {
                     updateScore(0); // no suma al puntaje
                     if (exerciseasy >= 1 && exerciseasy <= 9){
-                        Toast.makeText(getApplicationContext(), "Entrena tu oido", Toast.LENGTH_SHORT).show();
+                        SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(Nveles_Activity.this, SweetAlertDialog.ERROR_TYPE)
+                                .setTitleText("Entrena tu oido")
+                                .showCancelButton(false)
+                                .setCancelClickListener(null)
+                                .setConfirmClickListener(null);
+
+                        // Ocultar el botón de confirmación
+                        sweetAlertDialog.hideConfirmButton();
+                        sweetAlertDialog.show();
+
+                        // Programar la desaparición de la alerta después de 1 segundo
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                sweetAlertDialog.dismiss();
+                            }
+                        }, 1000); // 1000 milisegundos = 1 segundo
+                        //Toast.makeText(getApplicationContext(), "Entrena tu oido", Toast.LENGTH_SHORT).show();
                     }
                     next(questions); // Pasar a la siguiente pregunta
                 }
@@ -438,7 +586,25 @@ public class Nveles_Activity extends AppCompatActivity {
                 public void onClick(View view) {
                     updateScore(10); // Suma 10 puntos al puntaje
                     if (exerciseasy > 1 && exerciseasy <= 9){
-                        Toast.makeText(getApplicationContext(), "Buen trabajo siguiente nivel", Toast.LENGTH_SHORT).show();
+                        SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(Nveles_Activity.this, SweetAlertDialog.SUCCESS_TYPE)
+                                .setTitleText("Buen trabajo")
+                                .setContentText("+10 puntos")
+                                .showCancelButton(false)
+                                .setCancelClickListener(null)
+                                .setConfirmClickListener(null);
+
+                        // Ocultar el botón de confirmación
+                        sweetAlertDialog.hideConfirmButton();
+                        sweetAlertDialog.show();
+
+                        // Programar la desaparición de la alerta después de 1 segundo
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                sweetAlertDialog.dismiss();
+                            }
+                        }, 1000); // 1000 milisegundos = 1 segundo
+                        //Toast.makeText(getApplicationContext(), "Buen trabajo siguiente nivel", Toast.LENGTH_SHORT).show();
                     }
                     next(questions); // Pasar a la siguiente pregunta
                 }
@@ -474,7 +640,7 @@ public class Nveles_Activity extends AppCompatActivity {
                 player.pause();
                 player.seekTo(0);
                 stopUpdatingSeekBar(player);
-                playButton.setText("▶");
+                playButton.setText("Play");
             } else {
                 player.start();
                 startUpdatingSeekBar(player, seekBar);
@@ -485,7 +651,7 @@ public class Nveles_Activity extends AppCompatActivity {
         player.setOnCompletionListener(mp -> {
             seekBar.setProgress(0);
             stopUpdatingSeekBar(player);
-            playButton.setText("▶");
+            playButton.setText("Play");
         });
     }
 
@@ -519,6 +685,8 @@ public class Nveles_Activity extends AppCompatActivity {
             time.cancel();
             time = null;
         }
+
+
         // Liberar los recursos del MediaPlayer
         releaseMediaPlayer(reproductorAudio);
         releaseMediaPlayer(reproductorAudio2);

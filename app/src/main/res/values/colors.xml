@@ -10,5 +10,7 @@
     <color  name="color_launch">#B01515</color>
     <color  name="color_card">#000029</color>
     <color  name="color_pregunta">#32FD6B</color>
+    <color name="colorRojo">#FF0000</color>
+    <color name="colorAzul">#0000FF</color>
 
 </resources>
