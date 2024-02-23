@@ -32,7 +32,7 @@ public class Details_Activity extends AppCompatActivity {
             String points = String.valueOf(bundle);
 
             if (rere >= 0 && rere <= 5){
-                mj.setText("Tu puedes sigue intentando");
+                mj.setText("Tu puedes, sigue intentando");
             } else if (rere >= 6 && rere <= 8){
                 mj.setText("¡Bien hecho! :D");
             } else {
@@ -40,8 +40,8 @@ public class Details_Activity extends AppCompatActivity {
             }
 
             puntos.setText("00" + points);
-            resuelto.setText("Respuestas correctas: " + rere);
-            noresult.setText("Respuestas incorrectas: " + neg);
+            resuelto.setText("✔ Respuestas correctas: " + rere);
+            noresult.setText("❌ Respuestas incorrectas: " + neg);
         }
 
         Volver.setOnClickListener(new View.OnClickListener() {

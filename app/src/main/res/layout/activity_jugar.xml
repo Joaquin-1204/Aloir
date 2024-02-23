@@ -82,7 +82,6 @@
         android:layout_marginBottom="40dp"
         android:background="@drawable/button_back"
         android:fontFamily="@font/aclonica"
-        android:text="Volver"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

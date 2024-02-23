@@ -364,9 +364,9 @@ public class Nveles_Activity extends AppCompatActivity {
         Bajo = findViewById(R.id.btnBajo);
         Igual = findViewById(R.id.btnIgual);
 
-        Alto.setBackground(getDrawable(R.drawable.up_arrow));
-        Bajo.setBackground(getDrawable(R.drawable.down_arrow));
-        Igual.setBackground(getDrawable(R.drawable.equals));
+        Alto.setBackground(getDrawable(R.drawable.ic_arriba));
+        Bajo.setBackground(getDrawable(R.drawable.ic_abajo));
+        Igual.setBackground(getDrawable(R.drawable.ic_igual));
 
         if (response.equals("alto")){
             Alto.setOnClickListener(new View.OnClickListener() {
