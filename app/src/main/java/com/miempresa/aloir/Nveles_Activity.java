@@ -371,7 +371,7 @@ public class Nveles_Activity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     updateScore(10); // Suma 10 puntos al puntaje
-                    if (exerciseasy > 1 && exerciseasy <= 9) {
+                    if (exerciseasy > 0 && exerciseasy <= 9) {
                         SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(Nveles_Activity.this, SweetAlertDialog.SUCCESS_TYPE)
                                 .setTitleText("Buen trabajo")
                                 .setContentText("+10 puntos")
@@ -398,7 +398,7 @@ public class Nveles_Activity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     updateScore(0); // no suma al puntaje
-                    if (exerciseasy > 1 && exerciseasy <= 9){
+                    if (exerciseasy > 0 && exerciseasy <= 9){
                         SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(Nveles_Activity.this, SweetAlertDialog.ERROR_TYPE)
                                 .setTitleText("Entrena tu oido")
                                 .showCancelButton(false)
@@ -424,7 +424,7 @@ public class Nveles_Activity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     updateScore(0); // no suma al puntaje
-                    if (exerciseasy > 1 && exerciseasy <= 9){
+                    if (exerciseasy > 0 && exerciseasy <= 9){
                         SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(Nveles_Activity.this, SweetAlertDialog.ERROR_TYPE)
                                 .setTitleText("Entrena tu oido")
                                 .showCancelButton(false)
@@ -451,7 +451,7 @@ public class Nveles_Activity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     updateScore(0); // no suma al puntaje
-                    if (exerciseasy > 1 && exerciseasy <= 9){
+                    if (exerciseasy > 0 && exerciseasy <= 9){
                         SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(Nveles_Activity.this, SweetAlertDialog.ERROR_TYPE)
                                 .setTitleText("Entrena tu oido")
                                 .showCancelButton(false)
@@ -477,7 +477,7 @@ public class Nveles_Activity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     updateScore(10); // Suma 10 puntos al puntaje
-                    if (exerciseasy > 1 && exerciseasy <= 9){
+                    if (exerciseasy > 0 && exerciseasy <= 9){
                         SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(Nveles_Activity.this, SweetAlertDialog.SUCCESS_TYPE)
                                 .setTitleText("Buen trabajo")
                                 .setContentText("+10 puntos")
@@ -505,7 +505,7 @@ public class Nveles_Activity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     updateScore(0); // no suma al puntaje
-                    if (exerciseasy > 1 && exerciseasy <= 9){
+                    if (exerciseasy > 0 && exerciseasy <= 9){
                         SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(Nveles_Activity.this, SweetAlertDialog.ERROR_TYPE)
                                 .setTitleText("Entrena tu oido")
                                 .showCancelButton(false)
@@ -532,7 +532,7 @@ public class Nveles_Activity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     updateScore(0); // no suma al puntaje
-                    if (exerciseasy > 1 && exerciseasy <= 9){
+                    if (exerciseasy > 0 && exerciseasy <= 9){
                         SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(Nveles_Activity.this, SweetAlertDialog.ERROR_TYPE)
                                 .setTitleText("Entrena tu oido")
                                 .showCancelButton(false)
@@ -558,7 +558,7 @@ public class Nveles_Activity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     updateScore(0); // no suma al puntaje
-                    if (exerciseasy >= 1 && exerciseasy <= 9){
+                    if (exerciseasy > 0 && exerciseasy <= 9){
                         SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(Nveles_Activity.this, SweetAlertDialog.ERROR_TYPE)
                                 .setTitleText("Entrena tu oido")
                                 .showCancelButton(false)
@@ -585,7 +585,7 @@ public class Nveles_Activity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     updateScore(10); // Suma 10 puntos al puntaje
-                    if (exerciseasy > 1 && exerciseasy <= 9){
+                    if (exerciseasy > 0 && exerciseasy <= 9){
                         SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(Nveles_Activity.this, SweetAlertDialog.SUCCESS_TYPE)
                                 .setTitleText("Buen trabajo")
                                 .setContentText("+10 puntos")
