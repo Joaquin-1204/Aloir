@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -320,28 +321,29 @@ public class Nveles_Activity extends AppCompatActivity {
         String scoreText = currentScoreText.replaceAll("\\D+", "");
         int currentScore = Integer.parseInt(scoreText);
         currentScore += points; // Suma los puntos al puntaje actual
+        puntajeActual += points;
         scoreCounter.setText("0"); // Establece el puntaje inicial a 0
         scoreCounter.setText(String.valueOf(currentScore)); // Actualiza el TextView del puntaje
     }
 
-
-    @SuppressLint("ResourceAsColor")
     public void exercise(int view, int primary, int secondary, String ml, String response) {
         exerciseasy++; // Incrementa el contador de preguntas
         updateQuestionCounter(); // Actualiza el contador de preguntas
-        // exerciseasy=exerciseasy + 1;
-        // cambiar esto solo verifico si funciona xddd
         if (exerciseasy >= 10) {
             // Mostrar resultado durante 3 segundos antes de pasar a la siguiente actividad
+            Alto.setEnabled(false);
+            Igual.setEnabled(false);
+            Bajo.setEnabled(false);
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    Intent intent = new Intent(Nveles_Activity.this, MainActivity.class);
+                    Intent intent = new Intent(Nveles_Activity.this, Details_Activity.class);
+                    intent.putExtra("puntos", puntajeActual);
                     startActivity(intent);
                     finish(); // Finalizar la actividad actual
                     overridePendingTransition(R.anim.radial_transition, 0);
                 }
-            }, 5000); // 3000 milisegundos = 3 segundos
+            }, 2000); // 3000 milisegundos = 3 segundos
         }
         // Usado para cargar audio 01
         reproductorAudio = MediaPlayer.create(this, primary);
