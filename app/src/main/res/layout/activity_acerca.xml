@@ -7,44 +7,76 @@
     android:background="@drawable/background_gradient"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/textView"
-        android:layout_width="300dp"
-        android:layout_height="150dp"
-        app:srcCompat="@drawable/logo_eargym1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ScrollView
-        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnVolver"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="20dp"
-            android:text="Esta aplicación ha sido diseñada con el propósito de ofrecer una herramienta práctica y útil para músicos de todos los niveles. Ya sea que seas un principiante que está aprendiendo a afinar su instrumento por primera vez o un músico experimentado que busca mejorar su oído musical, nuestra aplicación está aquí para ayudarte. Nuestro objetivo es proporcionar una experiencia intuitiva y efectiva que te permita afinar y entrenar tu oído de manera fácil y accesible. \n
-Con una variedad de funciones y características, nuestra aplicación ofrece una amplia gama de herramientas para satisfacer tus necesidades musicales. Desde la capacidad de reproducir y reconocer notas hasta afinadores precisos y ejercicios de entrenamiento auditivo, nuestra aplicación está diseñada para ser versátil y adaptable a tus preferencias individuales. Además, ofrecemos una interfaz fácil de usar y personalizable que te permite ajustar la configuración según tus preferencias personales. \n
-Nos gustaría expresar nuestro sincero agradecimiento a todos los músicos y usuarios que han apoyado nuestra aplicación a lo largo del tiempo. Sus comentarios, sugerencias y comentarios han sido fundamentales para el desarrollo y la mejora continua de nuestra aplicación. También queremos reconocer a los músicos, educadores y expertos en audio cuya experiencia y conocimientos han contribuido al diseño y la funcionalidad de nuestra aplicación. Sin su apoyo y colaboración, no seríamos capaces de ofrecer una experiencia tan enriquecedora y valiosa a nuestra comunidad de usuarios."
-            android:textColor="@color/white"
-            android:textStyle="bold" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout14"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/logo_eargym1" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:text="Eargym® es una aplicación comisionada por el Lic. en Música Frank Nina Apaza, en colaboración con los programadores Joaquín Salas Quintanilla y Josué Parisaca Martínez.\n
+
+Diseñada con la intención de brindar una herramienta práctica y útil para músicos de todos los niveles, Eargym® está aquí para acompañarte en tu viaje musical. Tanto si estás empezando a afinar tu instrumento por primera vez como si eres un músico experimentado que busca mejorar su oído musical, nuestra aplicación ha sido creada para ayudarte en tu camino.\n
+
+Nuestro objetivo es proporcionar una experiencia intuitiva y efectiva que te permita afinar y entrenar tu oído de manera fácil y accesible. Con una amplia gama de funciones y características, Eargym® ofrece herramientas versátiles para satisfacer tus necesidades musicales. Desde la capacidad de reproducir y reconocer notas hasta afinadores precisos y ejercicios de entrenamiento auditivo, nuestra aplicación se adapta a tus preferencias individuales.\n
+
+Además, ofrecemos una interfaz fácil de usar y personalizable que te permite ajustar la configuración según tus preferencias personales. Valoramos profundamente el apoyo de todos los músicos y usuarios que han respaldado nuestra aplicación a lo largo del tiempo. Sus comentarios, sugerencias y retroalimentación han sido esenciales para el desarrollo y la mejora continua de Eargym®.\n
+
+También queremos reconocer la contribución de músicos, educadores y expertos en audio cuya experiencia y conocimientos han enriquecido el diseño y la funcionalidad de nuestra aplicación. Sin su apoyo y colaboración, no seríamos capaces de ofrecer una experiencia tan enriquecedora y valiosa a nuestra comunidad de usuarios."
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </ScrollView>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnVolver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/button_back"
         android:fontFamily="@font/aclonica"
         android:textColor="#000000"

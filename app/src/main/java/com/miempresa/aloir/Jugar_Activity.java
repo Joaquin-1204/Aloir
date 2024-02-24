@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class Jugar_Activity extends AppCompatActivity {
 
@@ -41,17 +42,19 @@ public class Jugar_Activity extends AppCompatActivity {
         Medio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Jugar_Activity.this, Nveles_Activity.class);
-                intent.putExtra("dd", "Medio");
-                startActivity(intent);
+                //Intent intent = new Intent(Jugar_Activity.this, Nveles_Activity.class);
+                //intent.putExtra("dd", "Medio");
+                //startActivity(intent);
+                Toast.makeText(Jugar_Activity.this, "Próximamente", Toast.LENGTH_SHORT).show();
             }
         });
         Dificil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Jugar_Activity.this, Nveles_Activity.class);
-                intent.putExtra("dd", "Dificil");
-                startActivity(intent);
+                //Intent intent = new Intent(Jugar_Activity.this, Nveles_Activity.class);
+                //intent.putExtra("dd", "Dificil");
+                //startActivity(intent);
+                Toast.makeText(Jugar_Activity.this, "Próximamente", Toast.LENGTH_SHORT).show();
             }
         });
     }

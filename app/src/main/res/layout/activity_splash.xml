@@ -9,12 +9,12 @@
 
     <ImageView
         android:id="@+id/logoimageView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginStart="40dp"
         android:layout_marginTop="90dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginBottom="90dp"
+        android:layout_marginBottom="120dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -25,26 +25,30 @@
 
     <TextView
         android:id="@+id/aloirtextView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
         android:fontFamily="@font/amaranth"
         android:text="@string/entrenar_tu_oido"
+        android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logoimageView" />
 
     <TextView
         android:id="@+id/paratextView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/amaranth"
         android:text="@string/para"
         android:textColor="@color/white"
         android:textSize="25sp"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="@+id/logoimageView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logoimageView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
