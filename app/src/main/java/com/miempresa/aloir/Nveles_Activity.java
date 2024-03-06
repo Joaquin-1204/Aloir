@@ -33,7 +33,7 @@ public class Nveles_Activity extends AppCompatActivity {
     Button Abandonar;
     TextView difi, music, questionCounter, scoreCounter;
     String bundle;
-    int exerciseasy =0;
+    int exerciseasy =-1;
     private MediaPlayer reproductorAudio, reproductorAudio2;
     private SeekBar seekBar, seekBar2;
     private Button playButton, playButton2, Alto, Bajo, Igual;
