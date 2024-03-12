@@ -11,16 +11,16 @@ import android.widget.Toast;
 
 public class Jugar_Activity extends AppCompatActivity {
 
-    Button Facil, Medio, Dificil, Volver;
+    Button n1, n2, n3, Volver;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jugar);
         // Botones
-        Facil = findViewById(R.id.btnFacil);
-        Medio = findViewById(R.id.btnMedio);
-        Dificil = findViewById(R.id.btnDificil);
+        n1 = findViewById(R.id.btnFacil);
+        n2 = findViewById(R.id.btnMedio);
+        n3 = findViewById(R.id.btnDificil);
         Volver = findViewById(R.id.btnVolver);
 
         //Acciones
@@ -31,30 +31,28 @@ public class Jugar_Activity extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_in_activity, R.anim.slide_out_activity);
             }
         });
-        Facil.setOnClickListener(new View.OnClickListener() {
+        n1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Jugar_Activity.this, Nveles_Activity.class);
-                intent.putExtra("dd", "Facil");
+                intent.putExtra("dd", "Nivel 1");
                 startActivity(intent);
             }
         });
-        Medio.setOnClickListener(new View.OnClickListener() {
+        n2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent intent = new Intent(Jugar_Activity.this, Nveles_Activity.class);
-                //intent.putExtra("dd", "Medio");
-                //startActivity(intent);
-                Toast.makeText(Jugar_Activity.this, "Próximamente", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Jugar_Activity.this, Nveles_Activity.class);
+                intent.putExtra("dd", "Nivel 2");
+                startActivity(intent);
             }
         });
-        Dificil.setOnClickListener(new View.OnClickListener() {
+        n3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent intent = new Intent(Jugar_Activity.this, Nveles_Activity.class);
-                //intent.putExtra("dd", "Dificil");
-                //startActivity(intent);
-                Toast.makeText(Jugar_Activity.this, "Próximamente", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Jugar_Activity.this, Nveles_Activity.class);
+                intent.putExtra("dd", "Nivel 3");
+                startActivity(intent);
             }
         });
     }

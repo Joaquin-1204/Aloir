@@ -56,9 +56,10 @@ public class Nveles_Activity extends AppCompatActivity {
         Abandonar = findViewById(R.id.btnVolver);
         difi = findViewById(R.id.difficult);
         bundle = getIntent().getStringExtra("dd");
+        questions.clear();
         difi.setText(bundle);
         switch (bundle) {
-            case "Facil":
+            case "Nivel 1":
                 //DO
                 addQuestion( "DO alto", R.drawable.dos, R.raw.do_afinado, R.raw.do_alto, "alto");
                 addQuestion("DO bajo",R.drawable.dos, R.raw.do_afinado, R.raw.do_bajo, "bajo");
@@ -236,9 +237,382 @@ public class Nveles_Activity extends AppCompatActivity {
                 next(questions);
 
                 break;
-            case "Medio":
+            case "Nivel 2":
+                //DO3
+                addQuestion( "DO3 alto",R.drawable.do6, R.raw.n2_do3_afinado, R.raw.n2_do4_alto, "alto");
+                addQuestion("DO3 bajo",R.drawable.do6, R.raw.n2_do3_afinado, R.raw.n2_do4_bajo, "bajo");
+                addQuestion("DO3 afi",R.drawable.do6, R.raw.n2_do3_afinado, R.raw.n2_do4_afinado, "igual");
+
+                //DO4
+                addQuestion( "DO4 alto",R.drawable.do6, R.raw.n2_do4_afinado, R.raw.n2_do4_alto, "alto");
+                addQuestion("DO4 bajo",R.drawable.do6, R.raw.n2_do4_afinado, R.raw.n2_do4_bajo, "bajo");
+                addQuestion("DO4 afi",R.drawable.do6, R.raw.n2_do4_afinado, R.raw.n2_do4_afinado, "igual");
+
+                //DO5
+                addQuestion( "DO5 alto",R.drawable.do6, R.raw.n2_do5_afinado, R.raw.n2_do5_alto, "alto");
+                addQuestion("DO5 bajo",R.drawable.do6, R.raw.n2_do5_afinado, R.raw.n2_do5_bajo, "bajo");
+                addQuestion("DO5 afi",R.drawable.do6, R.raw.n2_do5_afinado, R.raw.n2_do5_afinado, "igual");
+
+                //DO6
+                addQuestion( "DO6 alto",R.drawable.do6, R.raw.n2_do6_afinado, R.raw.n2_do6_alto, "alto");
+                addQuestion("DO6 bajo",R.drawable.do6, R.raw.n2_do6_afinado, R.raw.n2_do6_bajo, "bajo");
+                addQuestion("DO6 afi",R.drawable.do6, R.raw.n2_do6_afinado, R.raw.n2_do6_afinado, "igual");
+
+                //DOREB3
+                addQuestion( "DOREB3 alto",R.drawable.do6, R.raw.n2_doreb3_afinado, R.raw.n2_doreb3_alto, "alto");
+                addQuestion("DOREB3 bajo",R.drawable.do6, R.raw.n2_doreb3_afinado, R.raw.n2_doreb3_bajo, "bajo");
+                addQuestion("DOREB3 afi",R.drawable.do6, R.raw.n2_doreb3_afinado, R.raw.n2_doreb3_afinado, "igual");
+
+                //DOREB4
+                addQuestion( "DOREB4 alto",R.drawable.do6, R.raw.n2_doreb4_afinado, R.raw.n2_doreb4_alto, "alto");
+                addQuestion("DOREB4 bajo",R.drawable.do6, R.raw.n2_doreb4_afinado, R.raw.n2_doreb4_bajo, "bajo");
+                addQuestion("DOREB4 afi",R.drawable.do6, R.raw.n2_doreb4_afinado, R.raw.n2_doreb4_afinado, "igual");
+
+                //DOREB5
+                addQuestion( "DOREB5 alto",R.drawable.do6, R.raw.n2_doreb5_afinado, R.raw.n2_doreb5_alto, "alto");
+                addQuestion("DOREB5 bajo",R.drawable.do6, R.raw.n2_doreb5_afinado, R.raw.n2_doreb5_bajo, "bajo");
+                addQuestion("DOREB5 afi",R.drawable.do6, R.raw.n2_doreb5_afinado, R.raw.n2_doreb5_afinado, "igual");
+
+                //FA3
+                addQuestion( "FA3 alto",R.drawable.do6, R.raw.n2_fa3_afinado, R.raw.n2_fa3_alto, "alto");
+                addQuestion("FA3 bajo",R.drawable.do6, R.raw.n2_fa3_afinado, R.raw.n2_fa3_bajo, "bajo");
+                addQuestion("FA3 afi",R.drawable.do6, R.raw.n2_fa3_afinado, R.raw.n2_fa3_afinado, "igual");
+
+                //FA4
+                addQuestion( "FA4 alto",R.drawable.do6, R.raw.n2_fa4_afinado, R.raw.n2_fa4_alto, "alto");
+                addQuestion("FA4 bajo",R.drawable.do6, R.raw.n2_fa4_afinado, R.raw.n2_fa4_bajo, "bajo");
+                addQuestion("FA4 afi",R.drawable.do6, R.raw.n2_fa4_afinado, R.raw.n2_fa4_afinado, "igual");
+
+                //FA5
+                addQuestion( "FA5 alto",R.drawable.do6, R.raw.n2_fa5_afinado, R.raw.n2_fa5_alto, "alto");
+                addQuestion("FA5 bajo",R.drawable.do6, R.raw.n2_fa5_afinado, R.raw.n2_fa5_bajo, "bajo");
+                addQuestion("FA5 afi",R.drawable.do6, R.raw.n2_fa5_afinado, R.raw.n2_fa5_afinado, "igual");
+
+                //FASOLB3
+                addQuestion( "FASOLB3 alto",R.drawable.do6, R.raw.n2_fasolb3_afinado, R.raw.n2_fasolb3_alto, "alto");
+                addQuestion("FASOLB3 bajo",R.drawable.do6, R.raw.n2_fasolb3_afinado, R.raw.n2_fasolb3_bajo, "bajo");
+                addQuestion("FASOLB3 afi",R.drawable.do6, R.raw.n2_fasolb3_afinado, R.raw.n2_fasolb3_afinado, "igual");
+
+                //FASOLB4
+                addQuestion( "FASOLB4 alto",R.drawable.do6, R.raw.n2_fasolb4_afinado, R.raw.n2_fasolb4_alto, "alto");
+                addQuestion("FASOLB4 bajo",R.drawable.do6, R.raw.n2_fasolb4_afinado, R.raw.n2_fasolb4_bajo, "bajo");
+                addQuestion("FASOLB4 afi",R.drawable.do6, R.raw.n2_fasolb4_afinado, R.raw.n2_fasolb4_afinado, "igual");
+
+                //FASOLB5
+                addQuestion( "FASOLB5 alto",R.drawable.do6, R.raw.n2_fasolb5_afinado, R.raw.n2_fasolb5_alto, "alto");
+                addQuestion("FASOLB5 bajo",R.drawable.do6, R.raw.n2_fasolb5_afinado, R.raw.n2_fasolb5_bajo, "bajo");
+                addQuestion("FASOLB5 afi",R.drawable.do6, R.raw.n2_fasolb5_afinado, R.raw.n2_fasolb5_afinado, "igual");
+
+                //LA3
+                addQuestion( "LA3 alto",R.drawable.do6, R.raw.n2_la3_afinado, R.raw.n2_la3_alto, "alto");
+                addQuestion("LA3 bajo",R.drawable.do6, R.raw.n2_la3_afinado, R.raw.n2_la3_bajo, "bajo");
+                addQuestion("LA3 afi",R.drawable.do6, R.raw.n2_la3_afinado, R.raw.n2_la3_afinado, "igual");
+
+                //LA4
+                addQuestion( "LA4 alto",R.drawable.do6, R.raw.n2_la4_afinado, R.raw.n2_la4_alto, "alto");
+                addQuestion("LA4 bajo",R.drawable.do6, R.raw.n2_la4_afinado, R.raw.n2_la4_bajo, "bajo");
+                addQuestion("LA4 afi",R.drawable.do6, R.raw.n2_la4_afinado, R.raw.n2_la4_afinado, "igual");
+
+                //LA5
+                addQuestion( "LA5 alto",R.drawable.do6, R.raw.n2_la5_afinado, R.raw.n2_la5_alto, "alto");
+                addQuestion("LA5 bajo",R.drawable.do6, R.raw.n2_la5_afinado, R.raw.n2_la5_bajo, "bajo");
+                addQuestion("LA5 afi",R.drawable.do6, R.raw.n2_la5_afinado, R.raw.n2_la5_afinado, "igual");
+
+                //LASIB3
+                addQuestion( "LASIB3 alto",R.drawable.do6, R.raw.n2_lasib3_afinado, R.raw.n2_lasib3_alto, "alto");
+                addQuestion("LASIB3 bajo",R.drawable.do6, R.raw.n2_lasib3_afinado, R.raw.n2_lasib3_bajo, "bajo");
+                addQuestion("LASIB3 afi",R.drawable.do6, R.raw.n2_lasib3_afinado, R.raw.n2_lasib3_afinado, "igual");
+
+                //LASIB4
+                addQuestion( "LASIB4 alto",R.drawable.do6, R.raw.n2_lasib4_afinado, R.raw.n2_lasib4_alto, "alto");
+                addQuestion("LASIB4 bajo",R.drawable.do6, R.raw.n2_lasib4_afinado, R.raw.n2_lasib4_bajo, "bajo");
+                addQuestion("LASIB4 afi",R.drawable.do6, R.raw.n2_lasib4_afinado, R.raw.n2_lasib4_afinado, "igual");
+
+                //LASIB5
+                addQuestion( "LASIB5 alto",R.drawable.do6, R.raw.n2_lasib5_afinado, R.raw.n2_lasib5_alto, "alto");
+                addQuestion("LASIB5 bajo",R.drawable.do6, R.raw.n2_lasib5_afinado, R.raw.n2_lasib5_bajo, "bajo");
+                addQuestion("LASIB5 afi",R.drawable.do6, R.raw.n2_lasib5_afinado, R.raw.n2_lasib5_afinado, "igual");
+
+                //MI3
+                addQuestion( "MI3 alto",R.drawable.do6, R.raw.n2_mi3_afinado, R.raw.n2_mi3_alto, "alto");
+                addQuestion("MI3 bajo",R.drawable.do6, R.raw.n2_mi3_afinado, R.raw.n2_mi3_bajo, "bajo");
+                addQuestion("MI3 afi",R.drawable.do6, R.raw.n2_mi3_afinado, R.raw.n2_mi3_afinado, "igual");
+
+                //MI4
+                addQuestion( "MI4 alto",R.drawable.do6, R.raw.n2_mi4_afinado, R.raw.n2_mi4_alto, "alto");
+                addQuestion("MI4 bajo",R.drawable.do6, R.raw.n2_mi4_afinado, R.raw.n2_mi4_bajo, "bajo");
+                addQuestion("MI4 afi",R.drawable.do6, R.raw.n2_mi4_afinado, R.raw.n2_mi4_afinado, "igual");
+
+                //MI5
+                addQuestion( "MI5 alto",R.drawable.do6, R.raw.n2_mi5_afinado, R.raw.n2_mi5_alto, "alto");
+                addQuestion("MI5 bajo",R.drawable.do6, R.raw.n2_mi5_afinado, R.raw.n2_mi5_bajo, "bajo");
+                addQuestion("MI5 afi",R.drawable.do6, R.raw.n2_mi5_afinado, R.raw.n2_mi5_afinado, "igual");
+
+                //RE3
+                addQuestion( "RE3 alto",R.drawable.do6, R.raw.n2_re3_afinado, R.raw.n2_re3_alto, "alto");
+                addQuestion("RE3 bajo",R.drawable.do6, R.raw.n2_re3_afinado, R.raw.n2_re3_bajo, "bajo");
+                addQuestion("RE3 afi",R.drawable.do6, R.raw.n2_re3_afinado, R.raw.n2_re3_afinado, "igual");
+
+                //RE4
+                addQuestion( "RE4 alto",R.drawable.do6, R.raw.n2_re4_afinado, R.raw.n2_re4_alto, "alto");
+                addQuestion("RE4 bajo",R.drawable.do6, R.raw.n2_re4_afinado, R.raw.n2_re4_bajo, "bajo");
+                addQuestion("RE4 afi",R.drawable.do6, R.raw.n2_re4_afinado, R.raw.n2_re4_afinado, "igual");
+
+                //RE5
+                addQuestion( "RE5 alto",R.drawable.do6, R.raw.n2_re5_afinado, R.raw.n2_re5_alto, "alto");
+                addQuestion("RE5 bajo",R.drawable.do6, R.raw.n2_re5_afinado, R.raw.n2_re5_bajo, "bajo");
+                addQuestion("RE5 afi",R.drawable.do6, R.raw.n2_re5_afinado, R.raw.n2_re5_afinado, "igual");
+
+                //REMIB3
+                addQuestion( "REMIB3 alto",R.drawable.do6, R.raw.n2_remib3_afinado, R.raw.n2_remib3_alto, "alto");
+                addQuestion("REMIB3 bajo",R.drawable.do6, R.raw.n2_remib3_afinado, R.raw.n2_remib3_bajo, "bajo");
+                addQuestion("REMIB3 afi",R.drawable.do6, R.raw.n2_remib3_afinado, R.raw.n2_remib3_afinado, "igual");
+
+                //REMIB4
+                addQuestion( "REMIB4 alto",R.drawable.do6, R.raw.n2_remib4_afinado, R.raw.n2_remib4_alto, "alto");
+                addQuestion("REMIB4 bajo",R.drawable.do6, R.raw.n2_remib4_afinado, R.raw.n2_remib4_bajo, "bajo");
+                addQuestion("REMIB4 afi",R.drawable.do6, R.raw.n2_remib4_afinado, R.raw.n2_remib4_afinado, "igual");
+
+                //REMIB5
+                addQuestion( "REMIB5 alto",R.drawable.do6, R.raw.n2_remib5_afinado, R.raw.n2_remib5_alto, "alto");
+                addQuestion("REMIB5 bajo",R.drawable.do6, R.raw.n2_remib5_afinado, R.raw.n2_remib5_bajo, "bajo");
+                addQuestion("REMIB5 afi",R.drawable.do6, R.raw.n2_remib5_afinado, R.raw.n2_remib5_afinado, "igual");
+
+                //SI3
+                addQuestion( "SI3 alto",R.drawable.do6, R.raw.n2_si3_afinado, R.raw.n2_si3_alto, "alto");
+                addQuestion("SI3 bajo",R.drawable.do6, R.raw.n2_si3_afinado, R.raw.n2_si3_bajo, "bajo");
+                addQuestion("SI3 afi",R.drawable.do6, R.raw.n2_si3_afinado, R.raw.n2_si3_afinado, "igual");
+
+                //SI4
+                addQuestion( "SI4 alto",R.drawable.do6, R.raw.n2_si4_afinado, R.raw.n2_si4_alto, "alto");
+                addQuestion("SI4 bajo",R.drawable.do6, R.raw.n2_si4_afinado, R.raw.n2_si4_bajo, "bajo");
+                addQuestion("SI4 afi",R.drawable.do6, R.raw.n2_si4_afinado, R.raw.n2_si4_afinado, "igual");
+
+                //SI5
+                addQuestion( "SI5 alto",R.drawable.do6, R.raw.n2_si5_afinado, R.raw.n2_si5_alto, "alto");
+                addQuestion("SI5 bajo",R.drawable.do6, R.raw.n2_si5_afinado, R.raw.n2_si5_bajo, "bajo");
+                addQuestion("SI5 afi",R.drawable.do6, R.raw.n2_si5_afinado, R.raw.n2_si5_afinado, "igual");
+
+                //SOL3
+                addQuestion( "SOL3 alto",R.drawable.do6, R.raw.n2_sol3_afinado, R.raw.n2_sol3_alto, "alto");
+                addQuestion("SOL3 bajo",R.drawable.do6, R.raw.n2_sol3_afinado, R.raw.n2_sol3_bajo, "bajo");
+                addQuestion("SOL3 afi",R.drawable.do6, R.raw.n2_sol3_afinado, R.raw.n2_sol3_afinado, "igual");
+
+                //SOL4
+                addQuestion( "SOL4 alto",R.drawable.do6, R.raw.n2_sol4_afinado, R.raw.n2_sol4_alto, "alto");
+                addQuestion("SOL4 bajo",R.drawable.do6, R.raw.n2_sol4_afinado, R.raw.n2_sol4_bajo, "bajo");
+                addQuestion("SOL4 afi",R.drawable.do6, R.raw.n2_sol4_afinado, R.raw.n2_sol4_afinado, "igual");
+
+                //SOL5
+                addQuestion( "SOL5 alto",R.drawable.do6, R.raw.n2_sol5_afinado, R.raw.n2_sol5_alto, "alto");
+                addQuestion("SOL5 bajo",R.drawable.do6, R.raw.n2_sol5_afinado, R.raw.n2_sol5_bajo, "bajo");
+                addQuestion("SOL5 afi",R.drawable.do6, R.raw.n2_sol5_afinado, R.raw.n2_sol5_afinado, "igual");
+
+                //SOLLAB3
+                addQuestion( "SOLLAB3 alto",R.drawable.do6, R.raw.n2_sollab3_afinado, R.raw.n2_sollab3_alto, "alto");
+                addQuestion("SOLLAB3 bajo",R.drawable.do6, R.raw.n2_sollab3_afinado, R.raw.n2_sollab3_bajo, "bajo");
+                addQuestion("SOLLAB3 afi",R.drawable.do6, R.raw.n2_sollab3_afinado, R.raw.n2_sollab3_afinado, "igual");
+
+                //SOLLAB4
+                addQuestion( "SOLLAB4 alto",R.drawable.do6, R.raw.n2_sollab4_afinado, R.raw.n2_sollab4_alto, "alto");
+                addQuestion("SOLLAB4 bajo",R.drawable.do6, R.raw.n2_sollab4_afinado, R.raw.n2_sollab4_bajo, "bajo");
+                addQuestion("SOLLAB4 afi",R.drawable.do6, R.raw.n2_sollab4_afinado, R.raw.n2_sollab4_afinado, "igual");
+
+                //SOLLAB5
+                addQuestion( "SOLLAB5 alto",R.drawable.do6, R.raw.n2_sollab5_afinado, R.raw.n2_sollab5_alto, "alto");
+                addQuestion("SOLLAB5 bajo",R.drawable.do6, R.raw.n2_sollab5_afinado, R.raw.n2_sollab5_bajo, "bajo");
+                addQuestion("SOLLAB5 afi",R.drawable.do6, R.raw.n2_sollab5_afinado, R.raw.n2_sollab5_afinado, "igual");
+
+                next(questions);
                 break;
-            case  "Dificil":
+            case  "Nivel 3":
+
+                //DO3
+                addQuestion( "DO3 alto",R.drawable.do6, R.raw.n3_do3_afinado, R.raw.n3_do3_alto, "alto");
+                addQuestion("DO3 bajo",R.drawable.do6, R.raw.n3_do3_afinado, R.raw.n3_do3_bajo, "bajo");
+                addQuestion("DO3 afi",R.drawable.do6, R.raw.n3_do3_afinado, R.raw.n3_do3_afinado, "igual");
+
+                //DO4
+                addQuestion( "DO4 alto",R.drawable.do6, R.raw.n3_do4_afinado, R.raw.n3_do4_alto, "alto");
+                addQuestion("DO4 bajo",R.drawable.do6, R.raw.n3_do4_afinado, R.raw.n3_do4_bajo, "bajo");
+                addQuestion("DO4 afi",R.drawable.do6, R.raw.n3_do4_afinado, R.raw.n3_do4_afinado, "igual");
+
+                //DO5
+                addQuestion( "DO5 alto",R.drawable.do6, R.raw.n3_do5_afinado, R.raw.n3_do5_alto, "alto");
+                addQuestion("DO5 bajo",R.drawable.do6, R.raw.n3_do5_afinado, R.raw.n3_do5_bajo, "bajo");
+                addQuestion("DO5 afi",R.drawable.do6, R.raw.n3_do5_afinado, R.raw.n3_do5_afinado, "igual");
+
+                //DO6
+                addQuestion( "DO6 alto",R.drawable.do6, R.raw.n3_do6_afinado, R.raw.n3_do6_alto, "alto");
+                addQuestion("DO6 bajo",R.drawable.do6, R.raw.n3_do6_afinado, R.raw.n3_do6_bajo, "bajo");
+                addQuestion("DO6 afi",R.drawable.do6, R.raw.n3_do6_afinado, R.raw.n3_do6_afinado, "igual");
+
+                //DOREB3
+                addQuestion( "DOREB3 alto",R.drawable.do6, R.raw.n3_do6_afinado, R.raw.n3_do6_alto, "alto");
+                addQuestion("DOREB3 bajo",R.drawable.do6, R.raw.n3_do6_afinado, R.raw.n3_do6_bajo, "bajo");
+                addQuestion("DOREB3 afi",R.drawable.do6, R.raw.n3_do6_afinado, R.raw.n3_do6_afinado, "igual");
+
+                //DOREB4
+                addQuestion( "DOREB4 alto",R.drawable.do6, R.raw.n3_do6_afinado, R.raw.n3_do6_alto, "alto");
+                addQuestion("DOREB4 bajo",R.drawable.do6, R.raw.n3_do6_afinado, R.raw.n3_do6_bajo, "bajo");
+                addQuestion("DOREB4 afi",R.drawable.do6, R.raw.n3_do6_afinado, R.raw.n3_do6_afinado, "igual");
+
+                //DOREB5
+                addQuestion( "DOREB5 alto",R.drawable.do6, R.raw.n3_do5_afinado, R.raw.n3_do5_alto, "alto");
+                addQuestion("DOREB5 bajo",R.drawable.do6, R.raw.n3_do5_afinado, R.raw.n3_do5_bajo, "bajo");
+                addQuestion("DOREB5 afi",R.drawable.do6, R.raw.n3_do5_afinado, R.raw.n3_do5_afinado, "igual");
+
+                //FA3
+                addQuestion( "FA3 alto",R.drawable.do6, R.raw.n3_fa3_afinado, R.raw.n3_fa3_alto, "alto");
+                addQuestion("FA3 bajo",R.drawable.do6, R.raw.n3_fa3_afinado, R.raw.n3_fa3_bajo, "bajo");
+                addQuestion("FA3 afi",R.drawable.do6, R.raw.n3_fa3_afinado, R.raw.n3_fa3_afinado, "igual");
+
+                //FA4
+                addQuestion( "FA4 alto",R.drawable.do6, R.raw.n3_fa4_afinado, R.raw.n3_fa4_alto, "alto");
+                addQuestion("FA4 bajo",R.drawable.do6, R.raw.n3_fa4_afinado, R.raw.n3_fa4_bajo, "bajo");
+                addQuestion("FA4 afi",R.drawable.do6, R.raw.n3_fa4_afinado, R.raw.n3_fa4_afinado, "igual");
+
+                //FA5
+                addQuestion( "FA5 alto",R.drawable.do6, R.raw.n3_fa5_afinado, R.raw.n3_fa5_alto, "alto");
+                addQuestion("FA5 bajo",R.drawable.do6, R.raw.n3_fa5_afinado, R.raw.n3_fa5_bajo, "bajo");
+                addQuestion("FA5 afi",R.drawable.do6, R.raw.n3_fa5_afinado, R.raw.n3_fa5_afinado, "igual");
+
+                //FASOLB3
+                addQuestion( "FASOLB3 alto",R.drawable.do6, R.raw.n3_fasolb3_afinado, R.raw.n3_fasolb3_alto, "alto");
+                addQuestion("FASOLB3 bajo",R.drawable.do6, R.raw.n3_fasolb3_afinado, R.raw.n3_fasolb3_bajo, "bajo");
+                addQuestion("FASOLB3 afi",R.drawable.do6, R.raw.n3_fasolb3_afinado, R.raw.n3_fasolb3_afinado, "igual");
+
+                //FASOLB4
+                addQuestion( "FASOLB4 alto",R.drawable.do6, R.raw.n3_fasolb4_afinado, R.raw.n3_fasolb4_alto, "alto");
+                addQuestion("FASOLB4 bajo",R.drawable.do6, R.raw.n3_fasolb4_afinado, R.raw.n3_fasolb4_bajo, "bajo");
+                addQuestion("FASOLB4 afi",R.drawable.do6, R.raw.n3_fasolb4_afinado, R.raw.n3_fasolb4_afinado, "igual");
+
+                //FASOLB5
+                addQuestion( "FASOLB5 alto",R.drawable.do6, R.raw.n3_fasolb5_afinado, R.raw.n3_fasolb5_alto, "alto");
+                addQuestion("FASOLB5 bajo",R.drawable.do6, R.raw.n3_fasolb5_afinado, R.raw.n3_fasolb5_bajo, "bajo");
+                addQuestion("FASOLB5 afi",R.drawable.do6, R.raw.n3_fasolb5_afinado, R.raw.n3_fasolb5_afinado, "igual");
+
+                //LA3
+                addQuestion( "LA3 alto",R.drawable.do6, R.raw.n3_la3_afinado, R.raw.n3_la3_alto, "alto");
+                addQuestion("LA3 bajo",R.drawable.do6, R.raw.n3_la3_afinado, R.raw.n3_la3_bajo, "bajo");
+                addQuestion("LA3 afi",R.drawable.do6, R.raw.n3_la3_afinado, R.raw.n3_la3_afinado, "igual");
+
+                //LA4
+                addQuestion( "LA4 alto",R.drawable.do6, R.raw.n3_la4_afinado, R.raw.n3_la4_alto, "alto");
+                addQuestion("LA4 bajo",R.drawable.do6, R.raw.n3_la4_afinado, R.raw.n3_la4_bajo, "bajo");
+                addQuestion("LA4 afi",R.drawable.do6, R.raw.n3_la4_afinado, R.raw.n3_la4_afinado, "igual");
+
+                //LA5
+                addQuestion( "LA5 alto",R.drawable.do6, R.raw.n3_la5_afinado, R.raw.n3_la5_alto, "alto");
+                addQuestion("LA5 bajo",R.drawable.do6, R.raw.n3_la5_afinado, R.raw.n3_la5_bajo, "bajo");
+                addQuestion("LA5 afi",R.drawable.do6, R.raw.n3_la5_afinado, R.raw.n3_la5_afinado, "igual");
+
+                //LASIB3
+                addQuestion( "LASIB3 alto",R.drawable.do6, R.raw.n3_lasib3_afinado, R.raw.n3_lasib3_alto, "alto");
+                addQuestion("LASIB3 bajo",R.drawable.do6, R.raw.n3_lasib3_afinado, R.raw.n3_lasib3_bajo, "bajo");
+                addQuestion("LASIB3 afi",R.drawable.do6, R.raw.n3_lasib3_afinado, R.raw.n3_lasib3_afinado, "igual");
+
+                //LASIB4
+                addQuestion( "LASIB4 alto",R.drawable.do6, R.raw.n3_lasib4_afinado, R.raw.n3_lasib4_alto, "alto");
+                addQuestion("LASIB4 bajo",R.drawable.do6, R.raw.n3_lasib4_afinado, R.raw.n3_lasib4_bajo, "bajo");
+                addQuestion("LASIB4 afi",R.drawable.do6, R.raw.n3_lasib4_afinado, R.raw.n3_lasib4_afinado, "igual");
+
+                //LASIB5
+                addQuestion( "LASIB5 alto",R.drawable.do6, R.raw.n3_lasib5_afinado, R.raw.n3_lasib5_alto, "alto");
+                addQuestion("LASIB5 bajo",R.drawable.do6, R.raw.n3_lasib5_afinado, R.raw.n3_lasib5_bajo, "bajo");
+                addQuestion("LASIB5 afi",R.drawable.do6, R.raw.n3_lasib5_afinado, R.raw.n3_lasib5_afinado, "igual");
+
+                //MI3
+                addQuestion( "MI3 alto",R.drawable.do6, R.raw.n3_mi3_afinado, R.raw.n3_mi3_alto, "alto");
+                addQuestion("MI3 bajo",R.drawable.do6, R.raw.n3_mi3_afinado, R.raw.n3_mi3_bajo, "bajo");
+                addQuestion("MI3 afi",R.drawable.do6, R.raw.n3_mi3_afinado, R.raw.n3_mi3_afinado, "igual");
+
+                //MI4
+                addQuestion( "MI4 alto",R.drawable.do6, R.raw.n3_mi4_afinado, R.raw.n3_mi4_alto, "alto");
+                addQuestion("MI4 bajo",R.drawable.do6, R.raw.n3_mi4_afinado, R.raw.n3_mi4_bajo, "bajo");
+                addQuestion("MI4 afi",R.drawable.do6, R.raw.n3_mi4_afinado, R.raw.n3_mi4_afinado, "igual");
+
+                //MI5
+                addQuestion( "MI5 alto",R.drawable.do6, R.raw.n3_mi5_afinado, R.raw.n3_mi5_alto, "alto");
+                addQuestion("MI5 bajo",R.drawable.do6, R.raw.n3_mi5_afinado, R.raw.n3_mi5_bajo, "bajo");
+                addQuestion("MI5 afi",R.drawable.do6, R.raw.n3_mi5_afinado, R.raw.n3_mi5_afinado, "igual");
+
+                //RE3
+                addQuestion( "RE3 alto",R.drawable.do6, R.raw.n3_re3_afinado, R.raw.n3_re3_alto, "alto");
+                addQuestion("RE3 bajo",R.drawable.do6, R.raw.n3_re3_afinado, R.raw.n3_re3_bajo, "bajo");
+                addQuestion("RE3 afi",R.drawable.do6, R.raw.n3_re3_afinado, R.raw.n3_re3_afinado, "igual");
+
+                //RE4
+                addQuestion( "RE4 alto",R.drawable.do6, R.raw.n3_re4_afinado, R.raw.n3_re4_alto, "alto");
+                addQuestion("RE4 bajo",R.drawable.do6, R.raw.n3_re4_afinado, R.raw.n3_re4_bajo, "bajo");
+                addQuestion("RE4 afi",R.drawable.do6, R.raw.n3_re4_afinado, R.raw.n3_re4_afinado, "igual");
+
+                //RE5
+                addQuestion( "RE5 alto",R.drawable.do6, R.raw.n3_re5_afinado, R.raw.n3_re5_alto, "alto");
+                addQuestion("RE5 bajo",R.drawable.do6, R.raw.n3_re5_afinado, R.raw.n3_re5_bajo, "bajo");
+                addQuestion("RE5 afi",R.drawable.do6, R.raw.n3_re5_afinado, R.raw.n3_re5_afinado, "igual");
+
+                //REMIB3
+                addQuestion( "REMIB3 alto",R.drawable.do6, R.raw.n3_remib3_afinado, R.raw.n3_remib3_alto, "alto");
+                addQuestion("REMIB3 bajo",R.drawable.do6, R.raw.n3_remib3_afinado, R.raw.n3_remib3_bajo, "bajo");
+                addQuestion("REMIB3 afi",R.drawable.do6, R.raw.n3_remib3_afinado, R.raw.n3_remib3_afinado, "igual");
+
+                //REMIB4
+                addQuestion( "REMIB4 alto",R.drawable.do6, R.raw.n3_remib4_afinado, R.raw.n3_remib4_alto, "alto");
+                addQuestion("REMIB4 bajo",R.drawable.do6, R.raw.n3_remib4_afinado, R.raw.n3_remib4_bajo, "bajo");
+                addQuestion("REMIB4 afi",R.drawable.do6, R.raw.n3_remib4_afinado, R.raw.n3_remib4_afinado, "igual");
+
+                //REMIB5
+                addQuestion( "REMIB5 alto",R.drawable.do6, R.raw.n3_remib5_afinado, R.raw.n3_remib5_alto, "alto");
+                addQuestion("REMIB5 bajo",R.drawable.do6, R.raw.n3_remib5_afinado, R.raw.n3_remib5_bajo, "bajo");
+                addQuestion("REMIB5 afi",R.drawable.do6, R.raw.n3_remib5_afinado, R.raw.n3_remib5_afinado, "igual");
+
+                //SI3
+                addQuestion( "SI3 alto",R.drawable.do6, R.raw.n3_si3_afinado, R.raw.n3_si3_alto, "alto");
+                addQuestion("SI3 bajo",R.drawable.do6, R.raw.n3_si3_afinado, R.raw.n3_si3_bajo, "bajo");
+                addQuestion("SI3 afi",R.drawable.do6, R.raw.n3_si3_afinado, R.raw.n3_si3_afinado, "igual");
+
+                //SI4
+                addQuestion( "SI4 alto",R.drawable.do6, R.raw.n3_si4_afinado, R.raw.n3_si4_alto, "alto");
+                addQuestion("SI4 bajo",R.drawable.do6, R.raw.n3_si4_afinado, R.raw.n3_si4_bajo, "bajo");
+                addQuestion("SI4 afi",R.drawable.do6, R.raw.n3_si4_afinado, R.raw.n3_si4_afinado, "igual");
+
+                //SI5
+                addQuestion( "SI5 alto",R.drawable.do6, R.raw.n3_si5_afinado, R.raw.n3_si5_alto, "alto");
+                addQuestion("SI5 bajo",R.drawable.do6, R.raw.n3_si5_afinado, R.raw.n3_si5_bajo, "bajo");
+                addQuestion("SI5 afi",R.drawable.do6, R.raw.n3_si5_afinado, R.raw.n3_si5_afinado, "igual");
+
+                //SOL3
+                addQuestion( "SOL3 alto",R.drawable.do6, R.raw.n3_sol3_afinado, R.raw.n3_sol3_alto, "alto");
+                addQuestion("SOL3 bajo",R.drawable.do6, R.raw.n3_sol3_afinado, R.raw.n3_sol3_bajo, "bajo");
+                addQuestion("SOL3 afi",R.drawable.do6, R.raw.n3_sol3_afinado, R.raw.n3_sol3_afinado, "igual");
+
+                //SOL4
+                addQuestion( "SOL4 alto",R.drawable.do6, R.raw.n3_sol4_afinado, R.raw.n3_sol4_alto, "alto");
+                addQuestion("SOL4 bajo",R.drawable.do6, R.raw.n3_sol4_afinado, R.raw.n3_sol4_bajo, "bajo");
+                addQuestion("SOL4 afi",R.drawable.do6, R.raw.n3_sol4_afinado, R.raw.n3_sol4_afinado, "igual");
+
+                //SOL5
+                addQuestion( "SOL5 alto",R.drawable.do6, R.raw.n3_sol5_afinado, R.raw.n3_sol5_alto, "alto");
+                addQuestion("SOL5 bajo",R.drawable.do6, R.raw.n3_sol5_afinado, R.raw.n3_sol5_bajo, "bajo");
+                addQuestion("SOL5 afi",R.drawable.do6, R.raw.n3_sol5_afinado, R.raw.n3_sol5_afinado, "igual");
+
+                //SOLLAB3
+                addQuestion( "SOLLAB3 alto",R.drawable.do6, R.raw.n3_sollab3_afinado, R.raw.n3_sollab3_alto, "alto");
+                addQuestion("SOLLAB3 bajo",R.drawable.do6, R.raw.n3_sollab3_afinado, R.raw.n3_sollab3_bajo, "bajo");
+                addQuestion("SOLLAB3 afi",R.drawable.do6, R.raw.n3_sollab3_afinado, R.raw.n3_sollab3_afinado, "igual");
+
+                //SOLLAB4
+                addQuestion( "SOLLAB4 alto",R.drawable.do6, R.raw.n3_sollab4_afinado, R.raw.n3_sollab4_alto, "alto");
+                addQuestion("SOLLAB4 bajo",R.drawable.do6, R.raw.n3_sollab4_afinado, R.raw.n3_sollab4_bajo, "bajo");
+                addQuestion("SOLLAB4 afi",R.drawable.do6, R.raw.n3_sollab4_afinado, R.raw.n3_sollab4_afinado, "igual");
+
+                //SOLLAB5
+                addQuestion( "SOLLAB5 alto",R.drawable.do6, R.raw.n3_sollab5_afinado, R.raw.n3_sollab5_alto, "alto");
+                addQuestion("SOLLAB5 bajo",R.drawable.do6, R.raw.n3_sollab5_afinado, R.raw.n3_sollab5_bajo, "bajo");
+                addQuestion("SOLLAB5 afi",R.drawable.do6, R.raw.n3_sollab5_afinado, R.raw.n3_sollab5_afinado, "igual");
+
+                next(questions);
                 break;
         }
 
@@ -311,6 +685,8 @@ public class Nveles_Activity extends AppCompatActivity {
         int secundarysound = (int) randomQuestion.get("bar2");
         String mletter = (String) randomQuestion.get("lettermusic");
         String rpta = (String) randomQuestion.get("correct");
+        System.out.println(qqs.size() + ": este es el tamaño");
+        System.out.println(mletter + ": este es la nota y esta es la respuesta: " + rpta);
         exercise(viewmusic,principalsound, secundarysound, mletter,rpta);
     }
 
@@ -341,6 +717,7 @@ public class Nveles_Activity extends AppCompatActivity {
                     intent.putExtra("puntos", puntajeActual);
                     startActivity(intent);
                     finish(); // Finalizar la actividad actual
+                    questions.clear();
                     overridePendingTransition(R.anim.radial_transition, 0);
                 }
             }, 2000); // 3000 milisegundos = 3 segundos
@@ -373,7 +750,7 @@ public class Nveles_Activity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     updateScore(10); // Suma 10 puntos al puntaje
-                    if (exerciseasy > 0 && exerciseasy <= 9) {
+                    if (exerciseasy >= 0 && exerciseasy <= 9) {
                         SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(Nveles_Activity.this, SweetAlertDialog.SUCCESS_TYPE)
                                 .setTitleText("Buen trabajo")
                                 .setContentText("+10 puntos")
@@ -400,7 +777,7 @@ public class Nveles_Activity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     updateScore(0); // no suma al puntaje
-                    if (exerciseasy > 0 && exerciseasy <= 9){
+                    if (exerciseasy >= 0 && exerciseasy <= 9){
                         SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(Nveles_Activity.this, SweetAlertDialog.ERROR_TYPE)
                                 .setTitleText("Entrena tu oido")
                                 .showCancelButton(false)
@@ -426,7 +803,7 @@ public class Nveles_Activity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     updateScore(0); // no suma al puntaje
-                    if (exerciseasy > 0 && exerciseasy <= 9){
+                    if (exerciseasy >= 0 && exerciseasy <= 9){
                         SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(Nveles_Activity.this, SweetAlertDialog.ERROR_TYPE)
                                 .setTitleText("Entrena tu oido")
                                 .showCancelButton(false)
@@ -453,7 +830,7 @@ public class Nveles_Activity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     updateScore(0); // no suma al puntaje
-                    if (exerciseasy > 0 && exerciseasy <= 9){
+                    if (exerciseasy >= 0 && exerciseasy <= 9){
                         SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(Nveles_Activity.this, SweetAlertDialog.ERROR_TYPE)
                                 .setTitleText("Entrena tu oido")
                                 .showCancelButton(false)
@@ -479,7 +856,7 @@ public class Nveles_Activity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     updateScore(10); // Suma 10 puntos al puntaje
-                    if (exerciseasy > 0 && exerciseasy <= 9){
+                    if (exerciseasy >= 0 && exerciseasy <= 9){
                         SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(Nveles_Activity.this, SweetAlertDialog.SUCCESS_TYPE)
                                 .setTitleText("Buen trabajo")
                                 .setContentText("+10 puntos")
@@ -507,7 +884,7 @@ public class Nveles_Activity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     updateScore(0); // no suma al puntaje
-                    if (exerciseasy > 0 && exerciseasy <= 9){
+                    if (exerciseasy >= 0 && exerciseasy <= 9){
                         SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(Nveles_Activity.this, SweetAlertDialog.ERROR_TYPE)
                                 .setTitleText("Entrena tu oido")
                                 .showCancelButton(false)
@@ -534,7 +911,7 @@ public class Nveles_Activity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     updateScore(0); // no suma al puntaje
-                    if (exerciseasy > 0 && exerciseasy <= 9){
+                    if (exerciseasy >= 0 && exerciseasy <= 9){
                         SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(Nveles_Activity.this, SweetAlertDialog.ERROR_TYPE)
                                 .setTitleText("Entrena tu oido")
                                 .showCancelButton(false)
@@ -560,7 +937,7 @@ public class Nveles_Activity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     updateScore(0); // no suma al puntaje
-                    if (exerciseasy > 0 && exerciseasy <= 9){
+                    if (exerciseasy >= 0 && exerciseasy <= 9){
                         SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(Nveles_Activity.this, SweetAlertDialog.ERROR_TYPE)
                                 .setTitleText("Entrena tu oido")
                                 .showCancelButton(false)
@@ -587,7 +964,7 @@ public class Nveles_Activity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     updateScore(10); // Suma 10 puntos al puntaje
-                    if (exerciseasy > 0 && exerciseasy <= 9){
+                    if (exerciseasy >= 0 && exerciseasy <= 9){
                         SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(Nveles_Activity.this, SweetAlertDialog.SUCCESS_TYPE)
                                 .setTitleText("Buen trabajo")
                                 .setContentText("+10 puntos")
