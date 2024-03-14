@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 public class Jugar_Activity extends AppCompatActivity {
 
-    Button n1, n2, n3, Volver;
+    Button n1, n2, n3, n4, Volver;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +21,7 @@ public class Jugar_Activity extends AppCompatActivity {
         n1 = findViewById(R.id.btnFacil);
         n2 = findViewById(R.id.btnMedio);
         n3 = findViewById(R.id.btnDificil);
+        n4 = findViewById(R.id.btnn4);
         Volver = findViewById(R.id.btnVolver);
 
         //Acciones
@@ -52,6 +53,14 @@ public class Jugar_Activity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Jugar_Activity.this, Nveles_Activity.class);
                 intent.putExtra("dd", "Nivel 3");
+                startActivity(intent);
+            }
+        });
+        n4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Jugar_Activity.this, Nveles_Activity.class);
+                intent.putExtra("dd", "Nivel 4");
                 startActivity(intent);
             }
         });
