@@ -30,6 +30,8 @@ public class Jugar_Activity extends AppCompatActivity {
             public void onClick(View view) {
                 finish();
                 overridePendingTransition(R.anim.slide_in_activity, R.anim.slide_out_activity);
+                Intent intent = new Intent(Jugar_Activity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
         n1.setOnClickListener(new View.OnClickListener() {

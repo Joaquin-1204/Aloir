@@ -914,6 +914,7 @@ public class Nveles_Activity extends AppCompatActivity {
                 public void run() {
                     Intent intent = new Intent(Nveles_Activity.this, Details_Activity.class);
                     intent.putExtra("puntos", puntajeActual);
+                    intent.putExtra("nivel", bundle);
                     startActivity(intent);
                     finish(); // Finalizar la actividad actual
                     questions.clear();
