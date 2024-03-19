@@ -41,6 +41,8 @@ public class Nveles_Activity extends AppCompatActivity {
     private int puntajeActual = 0;
     private final int puntajeMaximo = 100;
 
+    private String respuestaCorrecta;
+
 
     private Timer time;
     public static List<Map<String, Object>> questions = new ArrayList<>();
@@ -887,6 +889,8 @@ public class Nveles_Activity extends AppCompatActivity {
         System.out.println(qqs.size() + ": este es el tamaño");
         System.out.println(mletter + ": este es la nota y esta es la respuesta: " + rpta);
         exercise(viewmusic,principalsound, secundarysound, mletter,rpta);
+        this.respuestaCorrecta = (String) randomQuestion.get("correct");
+
     }
 
     // Método para actualizar el puntaje
@@ -980,6 +984,7 @@ public class Nveles_Activity extends AppCompatActivity {
                     if (exerciseasy >= 0 && exerciseasy <= 9){
                         SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(Nveles_Activity.this, SweetAlertDialog.ERROR_TYPE)
                                 .setTitleText("Entrena tu oido")
+                                .setContentText("La respuesta correcta es: " + respuestaCorrecta)
                                 .showCancelButton(false)
                                 .setCancelClickListener(null)
                                 .setConfirmClickListener(null);
@@ -1006,6 +1011,7 @@ public class Nveles_Activity extends AppCompatActivity {
                     if (exerciseasy >= 0 && exerciseasy <= 9){
                         SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(Nveles_Activity.this, SweetAlertDialog.ERROR_TYPE)
                                 .setTitleText("Entrena tu oido")
+                                .setContentText("La respuesta correcta es: " + respuestaCorrecta)
                                 .showCancelButton(false)
                                 .setCancelClickListener(null)
                                 .setConfirmClickListener(null);
@@ -1033,6 +1039,7 @@ public class Nveles_Activity extends AppCompatActivity {
                     if (exerciseasy >= 0 && exerciseasy <= 9){
                         SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(Nveles_Activity.this, SweetAlertDialog.ERROR_TYPE)
                                 .setTitleText("Entrena tu oido")
+                                .setContentText("La respuesta correcta es: " + respuestaCorrecta)
                                 .showCancelButton(false)
                                 .setCancelClickListener(null)
                                 .setConfirmClickListener(null);
@@ -1087,6 +1094,7 @@ public class Nveles_Activity extends AppCompatActivity {
                     if (exerciseasy >= 0 && exerciseasy <= 9){
                         SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(Nveles_Activity.this, SweetAlertDialog.ERROR_TYPE)
                                 .setTitleText("Entrena tu oido")
+                                .setContentText("La respuesta correcta es: " + respuestaCorrecta)
                                 .showCancelButton(false)
                                 .setCancelClickListener(null)
                                 .setConfirmClickListener(null);
@@ -1114,6 +1122,7 @@ public class Nveles_Activity extends AppCompatActivity {
                     if (exerciseasy >= 0 && exerciseasy <= 9){
                         SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(Nveles_Activity.this, SweetAlertDialog.ERROR_TYPE)
                                 .setTitleText("Entrena tu oido")
+                                .setContentText("La respuesta correcta es: " + respuestaCorrecta)
                                 .showCancelButton(false)
                                 .setCancelClickListener(null)
                                 .setConfirmClickListener(null);
@@ -1140,6 +1149,7 @@ public class Nveles_Activity extends AppCompatActivity {
                     if (exerciseasy >= 0 && exerciseasy <= 9){
                         SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(Nveles_Activity.this, SweetAlertDialog.ERROR_TYPE)
                                 .setTitleText("Entrena tu oido")
+                                .setContentText("La respuesta correcta es: " + respuestaCorrecta)
                                 .showCancelButton(false)
                                 .setCancelClickListener(null)
                                 .setConfirmClickListener(null);
