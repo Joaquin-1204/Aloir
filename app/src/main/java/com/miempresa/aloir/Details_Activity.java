@@ -39,9 +39,9 @@ public class Details_Activity extends AppCompatActivity {
             if (rere >= 0 && rere <= 5){
                 mj.setText("Tu puedes, sigue intentando");
             } else if (rere >= 6 && rere <= 8){
-                mj.setText("¡Bien hecho! :D");
+                mj.setText("¡Bien hecho!");
             } else {
-                mj.setText("¡FELICITACIONES! :D");
+                mj.setText("¡FELICITACIONES!");
             }
 
             puntos.setText("00" + points);

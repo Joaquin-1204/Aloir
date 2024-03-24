@@ -41,6 +41,8 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView">
@@ -49,15 +51,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingTop="10dp"
-                    android:text="Eargym® es una aplicación comisionada por el Lic. en Música Frank Nina Apaza, en colaboración con los programadores Joaquín Salas Quintanilla y Josué Parisaca Martínez.\n
+                    android:text="Eargym® es una aplicación diseñada y desarrollada por el licenciado en música FRANK NINA APAZA, en colaboración con los programadores JOAQUÍN SALAS QUINTANILLA y JOSUÉ PARISACA MARTÍNEZ.\n
+Eargym® tiene la intención de brindar una herramienta práctica y útil para músicos de todos los niveles. Eargym® esta aquí para acompañarte en tu viaje musical; tanto si estas iniciando a afinar tu instrumento o si ya eres un músico que quiere perfeccionar la afinación; nuestra aplicación ha sido creada para acompañarte en este proceso musical.\n
+Nuestro objetivo es proporcionar una experiencia intuitiva y efectiva que te permita afinar y entrenar tu oído de manera lúdica, fácil y accesible, con amplia gama de funciones y características desarrolladas en el interfaz. Eargym® ofrece herramientas versátiles para satisfacer tus expectativas musicales, desde la capacidad de reproducir y reconocer sonidos afinados y desafinados mediante ejercicios de entrenamiento auditivo, los mismos que cuenta con distintos niveles de dificultad, podrás ir avanzando paso a paso en mejora de tu entrenamiento auditivo:\n
+Nivel 1: +- 50 cents de desafinación.\n
+Nivel 2: +- 40 cents de desafinación.\n
+Nivel 3: +- 30 cents de desafinación.\n
+Nivel 4: +- 20 cents de desafinación.\n
+Nivel 5: +- 15 cents de desafinación.\n
+Nivel 6: +- 10 cents de desafinación.\n
+Nivel 7: +- 5 cents de desafinación.\n
 
-Diseñada con la intención de brindar una herramienta práctica y útil para músicos de todos los niveles, Eargym® está aquí para acompañarte en tu viaje musical. Tanto si estás empezando a afinar tu instrumento por primera vez como si eres un músico experimentado que busca mejorar su oído musical, nuestra aplicación ha sido creada para ayudarte en tu camino.\n
-
-Nuestro objetivo es proporcionar una experiencia intuitiva y efectiva que te permita afinar y entrenar tu oído de manera fácil y accesible. Con una amplia gama de funciones y características, Eargym® ofrece herramientas versátiles para satisfacer tus necesidades musicales. Desde la capacidad de reproducir y reconocer notas hasta afinadores precisos y ejercicios de entrenamiento auditivo, nuestra aplicación se adapta a tus preferencias individuales.\n
-
-Además, ofrecemos una interfaz fácil de usar y personalizable que te permite ajustar la configuración según tus preferencias personales. Valoramos profundamente el apoyo de todos los músicos y usuarios que han respaldado nuestra aplicación a lo largo del tiempo. Sus comentarios, sugerencias y retroalimentación han sido esenciales para el desarrollo y la mejora continua de Eargym®.\n
-
-También queremos reconocer la contribución de músicos, educadores y expertos en audio cuya experiencia y conocimientos han enriquecido el diseño y la funcionalidad de nuestra aplicación. Sin su apoyo y colaboración, no seríamos capaces de ofrecer una experiencia tan enriquecedora y valiosa a nuestra comunidad de usuarios."
+Además, ofrecemos una interfaz fácil de usar y personalizable que te permite ajustar la configuración según tus preferencias.\n
+Valoramos profundamente a todos los músicos y usuarios que han respaldado a lo largo del proceso de creación de nuestra aplicación; su participación, comentarios y sugerencias han sido fundamentales para el desarrollo y la mejora de Eargym®.\n
+Te invitamos a que disfrutes y compartas la experiencia de nuestra aplicación.\n"
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"

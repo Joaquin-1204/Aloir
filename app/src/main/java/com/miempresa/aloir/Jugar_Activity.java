@@ -13,7 +13,7 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class Jugar_Activity extends AppCompatActivity {
 
-    Button n1, n2, n3, n4, n5, n6, Volver;
+    Button n1, n2, n3, n4, n5, n6, n7, Volver;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +26,7 @@ public class Jugar_Activity extends AppCompatActivity {
         n4 = findViewById(R.id.btnn4);
         n5 = findViewById(R.id.btnn5);
         n6 = findViewById(R.id.btnn6);
+        n7 = findViewById(R.id.btnn7);
         Volver = findViewById(R.id.btnVolver);
 
         //Acciones
@@ -182,6 +183,32 @@ public class Jugar_Activity extends AppCompatActivity {
                                 sDialog.dismissWithAnimation();
                                 Intent intent = new Intent(Jugar_Activity.this, Nveles_Activity.class);
                                 intent.putExtra("dd", "Nivel 6");
+                                startActivity(intent);
+                            }
+                        })
+                        .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                            @Override
+                            public void onClick(SweetAlertDialog sDialog) {
+                                sDialog.dismissWithAnimation();
+                            }
+                        })
+                        .show();
+            }
+        });
+        n7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new SweetAlertDialog(Jugar_Activity.this, SweetAlertDialog.WARNING_TYPE)
+                        .setTitleText("Confirmación")
+                        .setContentText("¿Estás seguro de que quieres empezar el Nivel 7?")
+                        .setConfirmText("Iniciar")
+                        .setCancelText("Cancelar")
+                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                            @Override
+                            public void onClick(SweetAlertDialog sDialog) {
+                                sDialog.dismissWithAnimation();
+                                Intent intent = new Intent(Jugar_Activity.this, Nveles_Activity.class);
+                                intent.putExtra("dd", "Nivel 7");
                                 startActivity(intent);
                             }
                         })
