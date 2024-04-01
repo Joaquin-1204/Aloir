@@ -1510,7 +1510,7 @@ public class Nveles_Activity extends AppCompatActivity {
         Bajo.setBackground(getDrawable(R.drawable.ic_abajo));
         Igual.setBackground(getDrawable(R.drawable.ic_igual));
 
-        if (response.equals("alto")){
+        if (response.equals("alto")) {
             Alto.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -1534,62 +1534,59 @@ public class Nveles_Activity extends AppCompatActivity {
                                 sweetAlertDialog.dismiss();
                             }
                         }, 1000); // 1000 milisegundos = 1 segundo
+                        //Toast.makeText(getApplicationContext(), "Buen trabajo siguiente nivel", Toast.LENGTH_SHORT).show();
                     }
                     next(questions); // Pasar a la siguiente pregunta
                 }
             });
+
             Bajo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     updateScore(0); // no suma al puntaje
-                    if (exerciseasy >= 0 && exerciseasy <= 9){
+                    if (exerciseasy >= 0 && exerciseasy <= 9) {
                         SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(Nveles_Activity.this, SweetAlertDialog.ERROR_TYPE)
                                 .setTitleText("Entrena tu oido")
                                 .setContentText("La respuesta correcta es: " + respuestaCorrecta)
                                 .showCancelButton(false)
                                 .setCancelClickListener(null)
-                                .setConfirmClickListener(null);
+                                .setConfirmText("Siguiente") // Establecer el texto del botón de confirmación
+                                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                    @Override
+                                    public void onClick(SweetAlertDialog sweetAlertDialog) {
+                                        sweetAlertDialog.dismissWithAnimation();
+                                        next(questions); // Pasar a la siguiente pregunta
+                                    }
+                                });
 
-                        // Ocultar el botón de confirmación
-                        sweetAlertDialog.hideConfirmButton();
+                        sweetAlertDialog.setCancelable(false); // Evitar que la alerta se cierre al tocar fuera de ella
                         sweetAlertDialog.show();
-
-                        // Programar la desaparición de la alerta después de 1 segundo
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                sweetAlertDialog.dismiss();
-                            }
-                        }, 1000); // 1000 milisegundos = 1 segundo
                     }
-                    next(questions); // Pasar a la siguiente pregunta
                 }
             });
+
             Igual.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     updateScore(0); // no suma al puntaje
-                    if (exerciseasy >= 0 && exerciseasy <= 9){
+                    if (exerciseasy >= 0 && exerciseasy <= 9) {
                         SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(Nveles_Activity.this, SweetAlertDialog.ERROR_TYPE)
                                 .setTitleText("Entrena tu oido")
                                 .setContentText("La respuesta correcta es: " + respuestaCorrecta)
                                 .showCancelButton(false)
                                 .setCancelClickListener(null)
-                                .setConfirmClickListener(null);
+                                .setConfirmText("Siguiente") // Establecer el texto del botón de confirmación
+                                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                    @Override
+                                    public void onClick(SweetAlertDialog sweetAlertDialog) {
+                                        sweetAlertDialog.dismissWithAnimation();
+                                        next(questions); // Pasar a la siguiente pregunta
+                                    }
+                                });
 
-                        // Ocultar el botón de confirmación
-                        sweetAlertDialog.hideConfirmButton();
+                        sweetAlertDialog.setCancelable(false); // Evitar que la alerta se cierre al tocar fuera de ella
                         sweetAlertDialog.show();
-
-                        // Programar la desaparición de la alerta después de 1 segundo
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                sweetAlertDialog.dismiss();
-                            }
-                        }, 1000); // 1000 milisegundos = 1 segundo
                     }
-                    next(questions); // Pasar a la siguiente pregunta
                 }
             });
         } else if (response.equals("bajo")) {
@@ -1597,27 +1594,24 @@ public class Nveles_Activity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     updateScore(0); // no suma al puntaje
-                    if (exerciseasy >= 0 && exerciseasy <= 9){
+                    if (exerciseasy >= 0 && exerciseasy <= 9) {
                         SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(Nveles_Activity.this, SweetAlertDialog.ERROR_TYPE)
                                 .setTitleText("Entrena tu oido")
                                 .setContentText("La respuesta correcta es: " + respuestaCorrecta)
                                 .showCancelButton(false)
                                 .setCancelClickListener(null)
-                                .setConfirmClickListener(null);
+                                .setConfirmText("Siguiente") // Establecer el texto del botón de confirmación
+                                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                    @Override
+                                    public void onClick(SweetAlertDialog sweetAlertDialog) {
+                                        sweetAlertDialog.dismissWithAnimation();
+                                        next(questions); // Pasar a la siguiente pregunta
+                                    }
+                                });
 
-                        // Ocultar el botón de confirmación
-                        sweetAlertDialog.hideConfirmButton();
+                        sweetAlertDialog.setCancelable(false); // Evitar que la alerta se cierre al tocar fuera de ella
                         sweetAlertDialog.show();
-
-                        // Programar la desaparición de la alerta después de 1 segundo
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                sweetAlertDialog.dismiss();
-                            }
-                        }, 1000); // 1000 milisegundos = 1 segundo
                     }
-                    next(questions); // Pasar a la siguiente pregunta
                 }
             });
             Bajo.setOnClickListener(new View.OnClickListener() {
@@ -1658,21 +1652,18 @@ public class Nveles_Activity extends AppCompatActivity {
                                 .setContentText("La respuesta correcta es: " + respuestaCorrecta)
                                 .showCancelButton(false)
                                 .setCancelClickListener(null)
-                                .setConfirmClickListener(null);
+                                .setConfirmText("Siguiente") // Establecer el texto del botón de confirmación
+                                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                    @Override
+                                    public void onClick(SweetAlertDialog sweetAlertDialog) {
+                                        sweetAlertDialog.dismissWithAnimation();
+                                        next(questions); // Pasar a la siguiente pregunta
+                                    }
+                                });
 
-                        // Ocultar el botón de confirmación
-                        sweetAlertDialog.hideConfirmButton();
+                        sweetAlertDialog.setCancelable(false); // Evitar que la alerta se cierre al tocar fuera de ella
                         sweetAlertDialog.show();
-
-                        // Programar la desaparición de la alerta después de 1 segundo
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                sweetAlertDialog.dismiss();
-                            }
-                        }, 1000); // 1000 milisegundos = 1 segundo
                     }
-                    next(questions); // Pasar a la siguiente pregunta
                 }
             });
         } else {
@@ -1686,21 +1677,18 @@ public class Nveles_Activity extends AppCompatActivity {
                                 .setContentText("La respuesta correcta es: " + respuestaCorrecta)
                                 .showCancelButton(false)
                                 .setCancelClickListener(null)
-                                .setConfirmClickListener(null);
+                                .setConfirmText("Siguiente") // Establecer el texto del botón de confirmación
+                                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                    @Override
+                                    public void onClick(SweetAlertDialog sweetAlertDialog) {
+                                        sweetAlertDialog.dismissWithAnimation();
+                                        next(questions); // Pasar a la siguiente pregunta
+                                    }
+                                });
 
-                        // Ocultar el botón de confirmación
-                        sweetAlertDialog.hideConfirmButton();
+                        sweetAlertDialog.setCancelable(false); // Evitar que la alerta se cierre al tocar fuera de ella
                         sweetAlertDialog.show();
-
-                        // Programar la desaparición de la alerta después de 1 segundo
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                sweetAlertDialog.dismiss();
-                            }
-                        }, 1000); // 1000 milisegundos = 1 segundo
                     }
-                    next(questions); // Pasar a la siguiente pregunta
                 }
             });
             Bajo.setOnClickListener(new View.OnClickListener() {
@@ -1713,22 +1701,18 @@ public class Nveles_Activity extends AppCompatActivity {
                                 .setContentText("La respuesta correcta es: " + respuestaCorrecta)
                                 .showCancelButton(false)
                                 .setCancelClickListener(null)
-                                .setConfirmClickListener(null);
+                                .setConfirmText("Siguiente") // Establecer el texto del botón de confirmación
+                                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                    @Override
+                                    public void onClick(SweetAlertDialog sweetAlertDialog) {
+                                        sweetAlertDialog.dismissWithAnimation();
+                                        next(questions); // Pasar a la siguiente pregunta
+                                    }
+                                });
 
-                        // Ocultar el botón de confirmación
-                        sweetAlertDialog.hideConfirmButton();
+                        sweetAlertDialog.setCancelable(false); // Evitar que la alerta se cierre al tocar fuera de ella
                         sweetAlertDialog.show();
-
-                        // Programar la desaparición de la alerta después de 1 segundo
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                sweetAlertDialog.dismiss();
-                            }
-                        }, 1000); // 1000 milisegundos = 1 segundo
-                        //Toast.makeText(getApplicationContext(), "Entrena tu oido", Toast.LENGTH_SHORT).show();
                     }
-                    next(questions); // Pasar a la siguiente pregunta
                 }
             });
             Igual.setOnClickListener(new View.OnClickListener() {
